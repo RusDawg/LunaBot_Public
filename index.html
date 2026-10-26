@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Moon Race HUD · v0 scaffold</title>
+<style>
+:root{
+  --bg:#121417;--card:#1c2026;--line:#2c323b;--txt:#EEF0F3;--cap:#C2C6CE;
+  --amb:#F5B83D;--us:#2f6fd0;--cn:#c8463a;--ok:#3dd68c;--tap:44px;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);font:16px/1.45 var(--font);-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{padding-bottom:84px;min-height:100vh}
+a{color:var(--amb)}
+header{position:sticky;top:0;z-index:8;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+header h1{margin:0;font-size:18px;color:var(--amb)}
+.asof{color:var(--cap);font-size:15px}.sp{flex:1}
+.badge{background:rgba(245,184,61,.15);color:var(--amb);border:1px solid rgba(245,184,61,.45);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;min-height:36px}
+nav{display:flex;gap:4px;padding:6px 8px;border-bottom:1px solid var(--line);background:var(--bg);overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav button{background:none;border:0;color:var(--cap);font-size:15px;padding:10px 12px;min-height:var(--tap);border-radius:8px;cursor:pointer;white-space:nowrap;flex:none}
+nav button.on{background:var(--amb);color:#111;font-weight:700}
+main{max-width:430px;margin:0 auto;padding:12px 14px 28px}
+@media(min-width:700px){main{max-width:720px;padding:20px 24px 40px}body{padding-bottom:0}
+nav{position:sticky;top:52px;z-index:7;justify-content:flex-start;flex-wrap:wrap}}
+@media(max-width:699px){nav{position:fixed;bottom:0;left:0;right:0;z-index:9;justify-content:space-around;border-top:1px solid var(--amb);border-bottom:0;background:var(--card);padding:4px 2px calc(4px + env(safe-area-inset-bottom))}
+nav button{padding:8px 6px;font-size:13px}}
+.view{display:none}.view.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:0 0 12px}
+.card h2{margin:0 0 8px;font-size:17px}
+.card h3{margin:12px 0 6px;font-size:16px;color:var(--cap)}
+.src{color:var(--cap);font-size:14px}
+.lbl{display:inline-block;font-weight:800;color:#fff;border-radius:4px;padding:0 6px;font-size:14px;min-width:34px;text-align:center}
+.lbl.US{background:var(--us)}.lbl.CN{background:var(--cn)}
+.chip{display:inline-block;border:1px solid var(--amb);color:var(--amb);border-radius:14px;padding:2px 10px;font-size:14px;font-weight:600}
+.tag{display:inline-block;font-size:13px;font-weight:700;border-radius:10px;padding:2px 8px;border:1px solid;white-space:nowrap;margin-right:4px}
+.tO{color:#8fe0b0;border-color:#8fe0b0}.tC{color:#9cc4ff;border-color:#9cc4ff}
+.tU{color:#ffd27a;border-color:#ffd27a;border-style:dashed}.tS{color:#b9bec7;border-color:#b9bec7;border-style:dotted}
+.st{display:inline-block;font-size:14px;font-weight:700;border-radius:10px;padding:2px 8px;background:#2a3038;border:1px solid #4a515c;white-space:nowrap}
+.est{display:inline-block;font-size:13px;font-weight:700;border:1px dashed var(--cap);border-radius:10px;padding:1px 8px;color:var(--cap)}
+.ty{display:inline-block;font-size:13px;font-weight:700;border:1px solid var(--cap);border-radius:8px;padding:0 6px;color:var(--cap)}
+.ty.rendering{color:#111;background:var(--amb);border-color:var(--amb)}
+/* Hero pair */
+.hpair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.hh2{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0c0e14;color:#fff;text-decoration:none;height:150px}
+.hh2 img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1f26}
+.hov2{position:absolute;left:0;right:0;bottom:0;padding:8px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.9) 40%);text-shadow:0 1px 3px #000}
+.hov2 b{font-size:15px;display:block}.hov2 .hc{font-size:12px;color:#e6e8ec}
+@media(max-width:699px){.hh2{height:120px}.hov2 b{font-size:14px}}
+@media(min-width:700px){.hpair{grid-template-columns:1fr 1fr}.hh2{height:220px}}
+/* Dial */
+.dial{text-align:center;padding:6px 4px}
+.dial-ring{width:140px;height:140px;margin:0 auto 10px;border-radius:50%;
+  background:conic-gradient(from 210deg,var(--us) 0 55deg,#4a515c 55deg 180deg,var(--cn) 180deg 235deg,#4a515c 235deg 360deg);
+  display:grid;place-items:center;position:relative}
+.dial-ring::after{content:"";position:absolute;inset:14px;background:var(--bg);border-radius:50%;border:1px solid var(--line)}
+.dial-core{position:relative;z-index:1;padding:8px}
+.dial-core strong{display:block;font-size:16px;line-height:1.25}
+.dial-core span{font-size:12px;color:var(--cap)}
+.lead{margin:0;font-size:16px}
+/* Map / pinch-zoom */
+.map-wrap{display:flex;justify-content:center;margin:8px 0 6px}
+.zw{position:relative;width:min(86vw,320px);aspect-ratio:1;border-radius:50%;overflow:hidden;touch-action:none;cursor:grab;background:#05080c;
+  border:1px solid var(--line);box-shadow:0 0 0 1px rgba(245,184,61,.12),0 10px 32px rgba(0,0,0,.45);-webkit-user-select:none;user-select:none}
+.zw.zoomed{cursor:grabbing}
+.zw .layer{position:absolute;left:0;top:0;width:100%;height:100%;transform-origin:0 0;will-change:transform}
+.zw svg{display:block;width:100%;height:100%}
+.zw .pt{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;
+  background:var(--amb);box-shadow:0 0 0 2px rgba(18,20,23,.9),0 0 8px rgba(245,184,61,.5);pointer-events:none}
+.zw .pt.cn{background:var(--cn);box-shadow:0 0 0 2px rgba(18,20,23,.9),0 0 8px rgba(200,70,58,.5)}
+.zw .pt.us{background:var(--us);box-shadow:0 0 0 2px rgba(18,20,23,.9),0 0 8px rgba(47,111,208,.5)}
+.map-leg{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;color:var(--cap);font-size:13px;margin-top:6px}
+.map-leg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+/* Architecture tiles */
+.seq{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.tile{flex:1 1 140px;max-width:220px;background:#0c0e14;border:1px solid var(--line);border-radius:10px;padding:6px;color:var(--txt);text-decoration:none;display:block;min-height:var(--tap)}
+.tile img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block;background:#1a1f26}
+.noimg{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;text-align:center;border:1px dashed var(--cap);border-radius:6px;color:var(--cap);font-size:14px;padding:6px}
+.tl{font-weight:700;font-size:14px;color:var(--amb);margin-bottom:4px}
+.tc{font-size:14px;margin-top:4px}.cr{font-size:12px;color:var(--cap)}
+.bnd{position:relative;overflow:hidden}.bnd.US{border-left:5px solid var(--us)}.bnd.CN{border-left:5px solid var(--cn)}
+.side-note{margin:6px 0 0;color:var(--cap);font-size:14px}
+/* Timeline */
+.tl-list{list-style:none;margin:0;padding:0}
+.tl-list li{border-top:1px solid var(--line);padding:12px 0;min-height:var(--tap)}
+.tl-list li:first-child{border-top:0;padding-top:2px}
+.pair{display:flex;align-items:center;gap:6px;margin:6px 0;flex-wrap:wrap}
+.pm{width:16px;height:16px;border-radius:50%;border:3px solid var(--txt);flex:none;background:var(--bg)}
+.pm.s{background:var(--txt)}.pm.q{border-style:dashed;border-color:var(--cap)}
+.pl{flex:1 1 24px;min-width:24px;height:3px;background:var(--txt);position:relative}
+.pl:after{content:"";position:absolute;right:-2px;top:-5px;border-left:9px solid var(--txt);border-top:6px solid transparent;border-bottom:6px solid transparent}
+/* Refuel / CONOPS */
+.refuel{display:flex;align-items:center;gap:12px;background:rgba(0,0,0,.28);border-radius:12px;padding:12px;margin:8px 0;min-height:var(--tap)}
+.n-of-m{font-size:28px;font-weight:800;color:var(--amb);min-width:72px;text-align:center;line-height:1.1}
+.n-of-m small{display:block;font-size:11px;color:var(--cap);font-weight:600;letter-spacing:.05em}
+.steps{list-style:none;margin:0;padding:0}
+.steps li{border-top:1px solid var(--line);padding:10px 0;display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start;min-height:var(--tap)}
+.steps li:first-child{border-top:0}
+.dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--cap);margin-top:2px}
+.dot.done{background:var(--ok);border-color:var(--ok)}.dot.next{border-color:var(--amb);box-shadow:0 0 0 3px rgba(245,184,61,.25)}
+.band{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0}
+.band .label{font-size:12px;color:var(--cap);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.band .val{font-size:16px;font-weight:700;margin:2px 0}
+.bar{height:8px;border-radius:999px;background:#1c273a;overflow:hidden;margin-top:6px}
+.bar>i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--us),#7ec0ff)}
+.bar.crew>i{background:linear-gradient(90deg,#6b7c96,#a8b6cc)}
+/* Media gallery */
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:8px}
+.mi{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;color:var(--txt);text-decoration:none;display:block;min-height:var(--tap)}
+.mi img,.ph{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#2a3038}
+.ph{display:flex;align-items:center;justify-content:center;color:var(--cap);font-size:14px;text-align:center;padding:8px;border:0}
+.mi .mc{padding:8px;font-size:14px}
+/* How-to */
+.howto summary{color:var(--amb);cursor:pointer;font-size:16px;font-weight:700;padding:4px 0;list-style:none;min-height:var(--tap);display:flex;align-items:center}
+.howto summary::-webkit-details-marker{display:none}
+.howto ul{padding-left:20px;margin:6px 0;color:var(--cap)}.howto li{margin:8px 0;font-size:15px;color:var(--txt)}
+.gloss dt{color:var(--us);font-weight:700;margin-top:8px}.gloss dd{margin:2px 0 0;color:var(--cap)}
+.sources ul{margin:0;padding-left:18px}.sources li{margin:0 0 8px;color:var(--cap)}
+.sources a{color:var(--amb)}
+footer{margin-top:8px;padding:12px 4px 8px;font-size:13px;color:#6b7c96;text-align:center;border-top:1px dashed var(--line)}
+.warn-banner{background:#2a2410;border:1px solid var(--amb);border-radius:10px;padding:10px 12px;margin:0 0 12px;font-size:14px;color:var(--txt)}
+.row2{display:grid;gap:10px}@media(min-width:700px){.row2{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Moon Race HUD</h1>
+  <span class="asof">Home · v0 scaffold · as-of Unknown</span>
+  <span class="sp"></span>
+  <span class="badge" title="Template scaffold">TEMPLATE</span>
+</header>
+<nav id="nav" aria-label="Primary">
+  <button type="button" data-v="home" class="on">Home</button>
+  <button type="button" data-v="arch">Architecture</button>
+  <button type="button" data-v="timeline">Timeline</button>
+  <button type="button" data-v="path">Path</button>
+  <button type="button" data-v="media">Media</button>
+  <button type="button" data-v="glossary">Glossary</button>
+  <button type="button" data-v="sources">Sources</button>
+</nav>
+<main>
+<!-- HOME -->
+<section class="view on" id="v-home" aria-label="Home">
+  <div class="warn-banner"><b>TEMPLATE SCAFFOLD</b> — fork and fill from primary sources. Placeholder dates and Unknown chips are <em>not</em> a live baseline.</div>
+
+  <div class="hpair" aria-label="Hero media">
+    <a class="hh2" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
+      <img src="https://www.nasa.gov/wp-content/uploads/2023/01/spacex_starship_hls_artemis_iii_2_crew_0_0.jpg" alt="Starship HLS artist concept on the lunar surface" loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link ↗'">
+      <div class="hov2"><span class="lbl US">US</span> <b>Starship HLS</b><div class="hc">SpaceX / NASA · 🎨 RENDERING ↗</div></div>
+    </a>
+    <a class="hh2" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
+      <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba660.jpeg" alt="China manned lunar lander landing and takeoff test" loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link ↗'">
+      <div class="hov2"><span class="lbl CN">CN</span> <b>Lanyue lander test</b><div class="hc">CMSA via english.www.gov.cn ↗</div></div>
+    </a>
+  </div>
+
+  <details class="card howto">
+    <summary>How to use this ▸</summary>
+    <ul>
+      <li><b>What this is:</b> a one-file phone dashboard for the U.S. (Artemis / commercial HLS) vs China (crewed lunar / ILRS) race. Fork the scaffold, then replace Unknowns with sourced facts.</li>
+      <li><b>Tabs:</b> Home · Architecture · Timeline · Path (CONOPS + refuel) · Media · Glossary · Sources.</li>
+      <li><b>Status symbols:</b> ✓ done · ● on track / in progress · ◐ at risk · ✕ slipped · ? unknown · ○ not started.</li>
+      <li><b>Dates:</b> hollow ○ = original plan; solid ● = current expectation; arrow = drift. Dashed “Estimate” = reasoning, not a sourced fact.</li>
+      <li><b>Credibility:</b> Official · Credible · Unconfirmed · Unknown. Blue = US, red = China (label always present).</li>
+      <li><b>Pictures:</b> tap a thumbnail to open the official page. <span class="ty rendering">🎨 RENDERING</span> = artist concept, not a photo.</li>
+      <li><b>Open the file:</b> download HTML and use <b>Open with Chrome</b> (Drive’s in-browser preview breaks JS / relative links).</li>
+    </ul>
+  </details>
+
+  <section class="card dial" aria-label="Race status">
+    <h2>Race dial</h2>
+    <div class="dial-ring" role="img" aria-label="Too early to call">
+      <div class="dial-core"><strong>Too early<br>to call</strong><span>until demos land</span></div>
+    </div>
+    <p class="lead">Both sides have credible paths. Tanker demos and uncrewed landings decide the dial — not press calendars. <span class="chip">Confidence: Low</span> <span class="tag tS">Unknown</span></p>
+  </section>
+
+  <section class="card" aria-label="Moon map">
+    <h2>South-pole map shell</h2>
+    <p class="src">Pinch or ctrl+scroll to zoom · markers glued to the moon layer · release springs home</p>
+    <div class="map-wrap">
+      <div class="zw" id="zw" role="img" aria-label="Moon disc with glued markers — pinch or ctrl-scroll to zoom">
+        <div class="layer" id="layer">
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="g" cx="38%" cy="32%" r="65%">
+                <stop offset="0%" stop-color="#c9d0d8"/><stop offset="45%" stop-color="#8a939e"/><stop offset="100%" stop-color="#3a424c"/>
+              </radialGradient>
+            </defs>
+            <circle cx="200" cy="200" r="200" fill="#1a1f26"/>
+            <circle cx="200" cy="200" r="188" fill="url(#g)"/>
+            <g fill="#5a6570" opacity=".55">
+              <circle cx="118" cy="140" r="28"/><circle cx="210" cy="110" r="18"/><circle cx="265" cy="175" r="42"/>
+              <circle cx="155" cy="230" r="22"/><circle cx="240" cy="268" r="31"/><circle cx="95" cy="250" r="14"/>
+              <circle cx="300" cy="240" r="16"/><circle cx="175" cy="165" r="10"/>
+            </g>
+            <ellipse cx="290" cy="200" rx="90" ry="180" fill="#0b0f14" opacity=".28"/>
+            <!-- south-pole hint arc -->
+            <path d="M120 310 Q200 360 280 310" fill="none" stroke="#F5B83D" stroke-width="2" opacity=".35" stroke-dasharray="4 4"/>
+          </svg>
+          <span class="pt us" data-u="-0.18" data-v="0.62" title="US candidate zone (example)"></span>
+          <span class="pt cn" data-u="0.22" data-v="0.55" title="CN candidate zone (example)"></span>
+          <span class="pt" data-u="0.05" data-v="0.72" title="Shackleton rim (example)"></span>
+        </div>
+      </div>
+    </div>
+    <div class="map-leg"><span><i style="background:var(--us)"></i>US example</span><span><i style="background:var(--cn)"></i>CN example</span><span><i style="background:var(--amb)"></i>Landmark example</span></div>
+    <p class="src">EXAMPLE markers only — replace with sourced landing sites. As of Unknown.</p>
+  </section>
+
+  <section class="card" aria-label="Up next">
+    <h2>Up next (examples)</h2>
+    <ul class="tl-list">
+      <li><span class="lbl US">US</span> <b>EXAMPLE · Starship flight test</b> <span class="tag tS">Unknown</span><div class="src">Replace with next sourced flight · ○ plan → ● current</div></li>
+      <li><span class="lbl CN">CN</span> <b>EXAMPLE · LM-10 / Mengzhou ground test</b> <span class="tag tS">Unknown</span><div class="src">Replace with next sourced milestone</div></li>
+    </ul>
+  </section>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="view" id="v-arch" aria-label="Architecture">
+  <h2 style="margin:0 0 10px;font-size:18px">Architecture</h2>
+  <div class="card bnd US">
+    <h2><span class="lbl US">US</span> Artemis paths</h2>
+    <p class="side-note">SLS is not the only U.S. launch path — Starship + tankers and New Glenn + Blue Moon matter.</p>
+    <div class="seq">
+      <a class="tile" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
+        <div class="tl">1. Starship HLS</div>
+        <img src="https://www.nasa.gov/wp-content/uploads/2024/11/11-03-24-artemis-3-on-surface.jpg" alt="Starship HLS on lunar surface artist concept" loading="lazy"
+          onerror="this.outerHTML='<div class=noimg>Official image · fill from ASSETS.md</div>'">
+        <div class="tc">Artemis III / IV lander <span class="ty rendering">🎨 RENDERING</span></div>
+        <div class="cr">SpaceX / NASA ↗</div>
+      </a>
+      <a class="tile" href="https://www.blueorigin.com/blue-moon" target="_blank" rel="noopener">
+        <div class="tl">2. Blue Moon</div>
+        <img src="https://d1o72l87sylvqg.cloudfront.net/redstone/gallery-bluemoon_nasa.jpg" alt="Blue Moon lander artist rendering" loading="lazy"
+          onerror="this.outerHTML='<div class=noimg>Official image · fill from ASSETS.md</div>'">
+        <div class="tc">Artemis V path <span class="ty rendering">🎨 RENDERING</span></div>
+        <div class="cr">Blue Origin ↗</div>
+      </a>
+      <a class="tile" href="https://www.nasa.gov/mission/artemis-iii/" target="_blank" rel="noopener">
+        <div class="tl">3. SLS + Orion</div>
+        <div class="noimg">Official SLS/Orion graphic<br>fill from ASSETS.md</div>
+        <div class="tc">Crew transport to lunar orbit</div>
+        <div class="cr">NASA · page link ↗</div>
+      </a>
+    </div>
+  </div>
+  <div class="card bnd CN">
+    <h2><span class="lbl CN">CN</span> Crewed lunar path</h2>
+    <p class="side-note">Long March-10 · Mengzhou crew craft · Lanyue lander — before-2030 goal is Official; exact month Unknown until sourced.</p>
+    <div class="seq">
+      <a class="tile" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
+        <div class="tl">1. Lanyue</div>
+        <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba662.jpeg" alt="Lanyue lander test hardware" loading="lazy"
+          onerror="this.outerHTML='<div class=noimg>Official image · fill from ASSETS.md</div>'">
+        <div class="tc">Crewed lunar lander (test)</div>
+        <div class="cr">CMSA via english.www.gov.cn ↗</div>
+      </a>
+      <a class="tile" href="https://www.cmse.gov.cn/" target="_blank" rel="noopener">
+        <div class="tl">2. Mengzhou</div>
+        <div class="noimg">Official Mengzhou graphic<br>fill from ASSETS.md</div>
+        <div class="tc">Next-gen crew spacecraft</div>
+        <div class="cr">CMSA · cmse.gov.cn ↗</div>
+      </a>
+      <a class="tile" href="https://www.cnsa.gov.cn/" target="_blank" rel="noopener">
+        <div class="tl">3. LM-10</div>
+        <div class="noimg">Official LM-10 graphic<br>fill from ASSETS.md</div>
+        <div class="tc">Heavy lift for lunar crew path</div>
+        <div class="cr">CNSA · cnsa.gov.cn ↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="view" id="v-timeline" aria-label="Timeline">
+  <h2 style="margin:0 0 10px;font-size:18px">Timeline</h2>
+  <div class="card">
+    <p class="src">○ hollow = original plan (example) · ● solid = current · status + credibility chips required. EXAMPLE rows — replace before calling this a live HUD.</p>
+    <ul class="tl-list">
+      <li>
+        <span class="lbl US">US</span> <b>Artemis III crewed landing</b>
+        <div class="pair"><span class="pm" title="original"></span><span>EXAMPLE NET 2027</span><span class="pl"></span><span class="pm s" title="current"></span><b>Unknown</b> <span class="tag tS">Unknown</span></div>
+        <div><span class="st">? unknown</span> · slip: Unknown <span class="est">Estimate</span></div>
+        <div class="src">Fill from NASA / HLS briefings</div>
+      </li>
+      <li>
+        <span class="lbl US">US</span> <b>Starship uncrewed lunar demo</b>
+        <div class="pair"><span class="pm"></span><span>EXAMPLE TBD</span><span class="pl"></span><span class="pm q"></span><b>Unknown</b> <span class="tag tS">Unknown</span></div>
+        <div><span class="st">○ not started</span></div>
+        <div class="src">Prerequisite for crewed HLS use</div>
+      </li>
+      <li>
+        <span class="lbl CN">CN</span> <b>Crewed lunar landing goal</b>
+        <div class="pair"><span class="pm"></span><span>before 2030</span><span class="pl"></span><span class="pm s"></span><b>before 2030</b> <span class="tag tO">Official</span></div>
+        <div><span class="st">● on track</span> · deadline-only bar may later fade to a month estimate</div>
+        <div class="src">CMSA / CNSA public statements · EXAMPLE confidence</div>
+      </li>
+      <li>
+        <span class="lbl CN">CN</span> <b>Lanyue landing/takeoff ground test</b>
+        <div class="pair"><span class="pm s"></span><span>Aug 2025</span><span class="pl"></span><span class="pm s"></span><b>Aug 2025</b> <span class="tag tO">Official</span></div>
+        <div><span class="st">✓ done</span></div>
+        <div class="src">english.www.gov.cn · 7 Aug 2025 report</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- PATH / CONOPS / REFUEL -->
+<section class="view" id="v-path" aria-label="Critical path">
+  <h2 style="margin:0 0 10px;font-size:18px">Critical path · Starship CONOPS</h2>
+  <div class="card">
+    <p class="src"><b>Never blend</b> demo-minimum tanker counts with crew transport / land / return CONOPS. Do not convert tanker counts into “months at today’s flight rate.”</p>
+    <div class="band">
+      <div class="label">Demo minimum CONOPS</div>
+      <div class="val">Unknown tankers <span class="tag tS">Unknown</span> <span class="est">Assumption</span></div>
+      <p class="src">Early uncrewed-demo planning often cited ~6–8+ (CONOPS-dependent) — label assumptions separately; not a NASA commitment.</p>
+      <div class="bar demo"><i style="width:18%"></i></div>
+    </div>
+    <div class="band">
+      <div class="label">Crew transport / land / return CONOPS</div>
+      <div class="val">Unknown tankers <span class="tag tS">Unknown</span></div>
+      <p class="src">Higher ASAP-style counts are for later/crewed-class stacks — <b>not</b> first-demo minima.</p>
+      <div class="bar crew"><i style="width:8%"></i></div>
+    </div>
+  </div>
+  <div class="card" aria-label="Refuel tracker">
+    <h2>Refuel tracker</h2>
+    <div class="refuel">
+      <div class="n-of-m">0<small>of 6 · EXAMPLE</small></div>
+      <div>
+        <div><b>Named steps</b> · next: R1 Depot deploy <span class="est">EXAMPLE</span></div>
+        <div class="src">EXAMPLE N of M — replace M and step list from sourced CONOPS; dial stays Too early until demos warrant otherwise</div>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><span class="dot next" aria-hidden="true"></span><div><b>R1 · Depot deploy</b> <span class="st">○ not started</span><div class="src">EXAMPLE step name — replace with sourced CONOPS</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R2 · Tanker flight 1</b> <span class="st">○ not started</span></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R3 · Propellant transfer demo</b> <span class="st">○ not started</span></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R4 · Tanker campaign complete (demo min)</b> <span class="st">○ not started</span></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R5 · HLS TLI / lunar arrival</b> <span class="st">○ not started</span></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R6 · Uncrewed landing demo</b> <span class="st">○ not started</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section class="view" id="v-media" aria-label="Media gallery">
+  <h2 style="margin:0 0 8px;font-size:18px">Media gallery</h2>
+  <p class="src">Official public URLs only · credit + as-of on every card · <span class="ty rendering">🎨 RENDERING</span> = artist concept. As of Unknown.</p>
+  <div class="mgrid">
+    <a class="mi" href="https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/" target="_blank" rel="noopener">
+      <img src="https://www.nasa.gov/wp-content/uploads/2023/01/spacex_starship_hls_artemis_iii_2_crew_0_0.jpg" alt="Starship HLS concept" loading="lazy">
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Starship HLS</b><div>On lunar surface</div><div class="src">SpaceX / NASA</div></div>
+    </a>
+    <a class="mi" href="https://www.blueorigin.com/gallery/by/blue-moon" target="_blank" rel="noopener">
+      <img src="https://d1o72l87sylvqg.cloudfront.net/redstone/gallery-bluemoon_nasa.jpg" alt="Blue Moon concept" loading="lazy">
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Blue Moon</b><div>Crew lander concept</div><div class="src">Blue Origin</div></div>
+    </a>
+    <a class="mi" href="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" target="_blank" rel="noopener">
+      <img src="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" alt="Artemis III CONOPS graphic" loading="lazy"
+        onerror="this.outerHTML='<div class=ph>Official CONOPS graphic</div>'">
+      <div class="mc"><span class="ty">📊 infographic</span> <b>Artemis III CONOPS</b><div>Official graphic</div><div class="src">NASA · Oct 2026</div></div>
+    </a>
+    <a class="mi" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
+      <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba660.jpeg" alt="Lanyue test" loading="lazy">
+      <div class="mc"><span class="ty">📷 photo</span> <b>Lanyue test</b><div>Landing / takeoff trial</div><div class="src">CMSA / gov.cn · Aug 2025</div></div>
+    </a>
+    <a class="mi" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
+      <div class="ph">Slot · Super Heavy / tanker<br>fill from ASSETS.md</div>
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Tanker / depot</b><div class="src">Placeholder · official URL TBD</div></div>
+    </a>
+    <a class="mi" href="https://www.cmse.gov.cn/" target="_blank" rel="noopener">
+      <div class="ph">Slot · Mengzhou<br>fill from ASSETS.md</div>
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Mengzhou</b><div class="src">Placeholder · CMSA</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section class="view" id="v-glossary" aria-label="Glossary">
+  <h2 style="margin:0 0 10px;font-size:18px">Glossary</h2>
+  <div class="card gloss">
+    <dl>
+      <dt>HLS</dt><dd>Human Landing System — vehicle that takes crew from lunar orbit to the surface and back.</dd>
+      <dt>CONOPS</dt><dd>Concept of operations — how many flights / which architecture for a given mission class.</dd>
+      <dt>Starship HLS</dt><dd>SpaceX lunar lander variant of Starship for Artemis III / IV.</dd>
+      <dt>Blue Moon</dt><dd>Blue Origin lunar lander family; crewed variant for Artemis V path.</dd>
+      <dt>SLS</dt><dd>Space Launch System — NASA heavy-lift rocket that launches Orion.</dd>
+      <dt>Orion</dt><dd>NASA crew capsule for Artemis Earth ↔ lunar orbit.</dd>
+      <dt>LM-10</dt><dd>Long March-10 — China’s heavy-lift rocket for the crewed lunar path.</dd>
+      <dt>Mengzhou</dt><dd>China’s next-generation crewed spacecraft for lunar (and LEO) missions.</dd>
+      <dt>Lanyue</dt><dd>China’s crewed lunar lander (“embracing the moon”).</dd>
+      <dt>ILRS</dt><dd>International Lunar Research Station — China/Russia-led lunar base concept.</dd>
+      <dt>NET</dt><dd>No earlier than — a date floor, not a commitment to fly that month.</dd>
+      <dt>Depot / tanker</dt><dd>Orbital propellant storage and the flights that fill it before an HLS departure.</dd>
+      <dt>RENDERING</dt><dd>Artist’s concept — not a photograph of flown hardware.</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="view" id="v-sources" aria-label="Sources">
+  <h2 style="margin:0 0 10px;font-size:18px">Sources</h2>
+  <div class="card sources">
+    <p>Primary links (dated). Replace/extend on every fill. Tags: <span class="tag tO">Official</span> <span class="tag tC">Credible</span> <span class="tag tU">Unconfirmed</span> <span class="tag tS">Unknown</span></p>
+    <ul>
+      <li><span class="tag tO">Official</span> NASA Human Landing Systems — <a href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">nasa.gov/reference/human-landing-systems</a> · as of Unknown</li>
+      <li><span class="tag tO">Official</span> NASA / SpaceX Artemis lander concepts (20 Nov 2024) — <a href="https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/" target="_blank" rel="noopener">article</a></li>
+      <li><span class="tag tO">Official</span> Blue Moon — <a href="https://www.blueorigin.com/blue-moon" target="_blank" rel="noopener">blueorigin.com/blue-moon</a></li>
+      <li><span class="tag tO">Official</span> CMSA Lanyue landing/takeoff test report — <a href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">english.www.gov.cn · 7 Aug 2025</a></li>
+      <li><span class="tag tO">Official</span> CMSA — <a href="https://www.cmse.gov.cn/" target="_blank" rel="noopener">cmse.gov.cn</a></li>
+      <li><span class="tag tO">Official</span> CNSA — <a href="https://www.cnsa.gov.cn/" target="_blank" rel="noopener">cnsa.gov.cn</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  TEMPLATE SCAFFOLD v0 — fork and fill from primary sources. Do not treat placeholder dates as a live baseline.
+  Packing path when installed: <code>moon-race-hud/scaffold/index.html</code> (this file is the seed).
+</footer>
+</main>
+<script>
+(/* tabs */)
+(()=>{
+  const go=v=>{
+    document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));
+    document.querySelectorAll('nav button[data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+    scrollTo(0,0);
+    try{history.replaceState(null,'','#'+v)}catch(e){}
+  };
+  document.querySelectorAll('nav button[data-v]').forEach(b=>b.onclick=()=>go(b.dataset.v));
+  if(location.hash)go(location.hash.slice(1)||'home');
+})();
+
+(/* spring pinch-zoom — markers glued to moon layer; no on-screen double-tap hint */)
+(()=>{
+  const el=document.getElementById('zw');
+  const layer=document.getElementById('layer');
+  if(!el||!layer)return;
+  const pts=[...el.querySelectorAll('.pt')];
+  const RM=matchMedia('(prefers-reduced-motion: reduce)');
+  let s=1,tx=0,ty=0,anim=null,idle=null,tap=null,lastTap=null,SEQ=0;
+  const P=new Map();let g0=null;const MAX=5;
+  const W=()=>el.clientWidth;
+  function clamp(){
+    const w=W();s=Math.min(MAX,Math.max(1,s));
+    tx=Math.min(0,Math.max(w-w*s,tx));ty=Math.min(0,Math.max(w-w*s,ty));
+  }
+  function draw(){
+    const w=W(),R=w/2;
+    layer.style.transform=`translate(${tx.toFixed(2)}px,${ty.toFixed(2)}px) scale(${s})`;
+    for(const p of pts){
+      const u=+p.dataset.u,v=+p.dataset.v;
+      const x=R*(1+u),y=R*(1+v);
+      p.style.left=x.toFixed(2)+'px';p.style.top=y.toFixed(2)+'px';
+      p.style.display=(u*u+v*v<=1.02)?'':'none';
+    }
+    el.classList.toggle('zoomed',s>1.001);
+  }
+  function zoomAt(f,cx,cy){
+    const ns=Math.min(MAX,Math.max(1,s*f)),k=ns/s;
+    tx=cx-(cx-tx)*k;ty=cy-(cy-ty)*k;s=ns;clamp();draw();
+  }
+  function reset(){stop();clearTimeout(idle);s=1;tx=ty=0;draw()}
+  function stop(){if(anim)cancelAnimationFrame(anim);anim=null}
+  function snap(){
+    stop();const s0=s,x0=tx,y0=ty;
+    if(s0<=1.001&&Math.abs(x0)<.5&&Math.abs(y0)<.5){s=1;tx=ty=0;draw();return}
+    const D=RM.matches?120:520,t0=performance.now();
+    const ease=RM.matches?(t=>t):(t=>1-Math.exp(-6.5*t)*Math.cos(9.5*t));
+    (function step(now){
+      const t=Math.min(1,(now-t0)/D),e=t>=1?1:ease(t);
+      s=s0+(1-s0)*e;tx=x0*(1-e);ty=y0*(1-e);draw();
+      if(t<1)anim=requestAnimationFrame(step);else{s=1;tx=ty=0;draw();anim=null}
+    })(t0);
+  }
+  const local=e=>{const r=el.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
+  el.addEventListener('dblclick',e=>{e.preventDefault();reset()});
+  document.addEventListener('pointerdown',()=>{SEQ++},true);
+  el.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='mouse'&&e.button!==0)return;
+    stop();const L=local(e);P.set(e.pointerId,L);
+    tap=P.size===1?{x:L[0],y:L[1],m:0}:null;
+    el.setPointerCapture(e.pointerId);g0=null;
+  });
+  el.addEventListener('pointermove',e=>{
+    if(!P.has(e.pointerId))return;
+    const prev=P.get(e.pointerId),cur=local(e);P.set(e.pointerId,cur);
+    if(tap)tap.m=Math.max(tap.m,Math.hypot(cur[0]-tap.x,cur[1]-tap.y));
+    if(P.size>=2){
+      tap=null;const[a,b]=[...P.values()],d=Math.hypot(a[0]-b[0],a[1]-b[1]),m=[(a[0]+b[0])/2,(a[1]+b[1])/2];
+      if(g0){zoomAt(d/g0.d,m[0],m[1]);tx+=m[0]-g0.m[0];ty+=m[1]-g0.m[1];clamp();draw()}
+      g0={d,m};
+    }else if((s>1.001||e.pointerType==='mouse')&&(!tap||tap.m>=6)){
+      tx+=cur[0]-prev[0];ty+=cur[1]-prev[1];clamp();draw();
+    }
+  });
+  const up=e=>{
+    P.delete(e.pointerId);g0=null;
+    if(e.type==='pointerup'&&tap&&tap.m<6){
+      const now=performance.now();
+      if(lastTap&&lastTap.seq===SEQ-1&&now-lastTap.t<320&&Math.hypot(tap.x-lastTap.x,tap.y-lastTap.y)<30){
+        lastTap=null;reset();tap=null;if(P.size===0)return;
+      }else lastTap={t:now,x:tap.x,y:tap.y,seq:SEQ};
+    }
+    tap=null;if(P.size===0)snap();
+  };
+  el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);
+  el.addEventListener('wheel',e=>{
+    if(!e.ctrlKey&&!e.metaKey&&s<=1.001)return;
+    e.preventDefault();stop();const[cx,cy]=local(e);
+    if(e.ctrlKey||e.metaKey)zoomAt(Math.exp(-e.deltaY*0.01),cx,cy);
+    else{tx-=e.deltaX;ty-=e.deltaY;clamp();draw()}
+    clearTimeout(idle);idle=setTimeout(()=>{if(P.size===0)snap()},450);
+  },{passive:false});
+  new ResizeObserver(draw).observe(el);draw();
+})();
+</script>
+</body>
+</html>

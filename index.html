@@ -137,6 +137,29 @@ nav button{padding:10px 12px;font-size:16px}}
 .empty h2{color:var(--amb)}
 footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-align:center;border-top:1px dashed var(--line)}
 .warn-banner{background:#2a2410;border:1px solid var(--amb);border-radius:10px;padding:10px 12px;margin:0 0 12px;font-size:16px;color:var(--txt)}
+@media(max-width:699px){
+  header{padding:8px 12px;gap:4px 8px;flex-wrap:nowrap}
+  header .asof{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  header .sp{display:none}
+  .warn-banner{padding:8px 10px;margin:0 0 8px}
+  main{padding:8px 12px 96px}
+  .card{padding:8px 10px;margin:0 0 8px}
+  .card h2{margin:0 0 2px;font-size:18px}
+  .src{line-height:1.25}
+  .mc-grid{gap:6px}
+  .mc-grid .band{display:flex;flex-wrap:nowrap;align-items:center;gap:4px;padding:4px 6px;margin:0;min-height:44px}
+  .mc-grid .band .label{letter-spacing:0;line-height:1.2;text-transform:none;white-space:nowrap}
+  .mc-grid .band .val{margin:0;line-height:1.2;white-space:nowrap}
+  #v-home .hpair{grid-template-columns:1fr;gap:6px;margin:0}
+  #v-home .way{position:relative;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 8px;padding:6px 8px;min-height:44px}
+  #v-home .way b{line-height:1.2}
+  #v-home .way .pathnames{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  #v-home > .hpair{grid-template-columns:1fr 1fr}
+  .dial{padding:0}
+  .dial-ring{width:96px;height:96px;margin:0 auto 4px}
+  .dial-ring::after{inset:12px}
+  .lead{line-height:1.25}
+}
 </style>
 </head>
 <body>
@@ -159,71 +182,32 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
 <main>
 <!-- HOME -->
 <section class="view on" id="v-home" aria-label="Home">
-  <div class="warn-banner"><b>TEMPLATE SCAFFOLD</b> — fork and fill from primary sources. Placeholder dates, EXAMPLE chips, and Unknowns are <em>not</em> a live baseline.</div>
+  <div class="warn-banner"><b>TEMPLATE SCAFFOLD</b> — dates and Unknowns are not a live baseline.</div>
 
   <section class="card" aria-label="Mission control">
     <h2>Mission control</h2>
-    <p class="src">Board shell · as-of Unknown · confidence low until demos land</p>
     <div class="mc-grid">
       <div class="band"><div class="label">Call</div><div class="val">Too early</div><span class="tag tS">Unknown</span></div>
-      <div class="band"><div class="label">US crew landing</div><div class="val">Unknown</div><span class="chip">EXAMPLE</span></div>
-      <div class="band"><div class="label">CN crew goal</div><div class="val">before 2030</div><span class="tag tO">Official</span></div>
-      <div class="band"><div class="label">Uncrewed demos</div><div class="val">Unknown</div><span class="chip">EXAMPLE</span></div>
-    </div>
-  </section>
-
-  <div class="hpair" aria-label="Hero media">
-    <a class="hh2" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
-      <img src="https://www.nasa.gov/wp-content/uploads/2023/01/spacex_starship_hls_artemis_iii_2_crew_0_0.jpg" alt="Starship HLS artist concept on the lunar surface" loading="lazy"
-        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link'">
-      <div class="hov2"><span class="lbl US">US</span> <b>Starship HLS</b><div class="hc">SpaceX / NASA · 🎨 RENDERING</div></div>
-    </a>
-    <a class="hh2" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
-      <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba660.jpeg" alt="China manned lunar lander landing and takeoff test" loading="lazy"
-        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link'">
-      <div class="hov2"><span class="lbl CN">CN</span> <b>Lanyue lander test</b><div class="hc">CMSA via english.www.gov.cn</div></div>
-    </a>
-  </div>
-
-  <section class="card" aria-label="Official overview">
-    <h2>Official overview</h2>
-    <p class="src">Remote agency images only · <span class="ty rendering">🎨 RENDERING</span> is not a photo · as-of Unknown</p>
-    <div class="strip">
-      <a class="mi" href="https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/" target="_blank" rel="noopener">
-        <img src="https://www.nasa.gov/wp-content/uploads/2024/11/11-03-24-artemis-3-on-surface.jpg" alt="Starship HLS on the lunar surface, artist concept" loading="lazy">
-        <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>On surface</b><div class="src">SpaceX / NASA</div></div>
-      </a>
-      <a class="mi" href="https://www.blueorigin.com/blue-moon" target="_blank" rel="noopener">
-        <img src="https://d1o72l87sylvqg.cloudfront.net/redstone/gallery-bluemoon_nasa.jpg" alt="Blue Moon lander artist rendering" loading="lazy">
-        <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Blue Moon</b><div class="src">Blue Origin</div></div>
-      </a>
-      <a class="mi" href="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" target="_blank" rel="noopener">
-        <img src="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" alt="Artemis III concept of operations graphic" loading="lazy"
-          onerror="this.outerHTML='<div class=ph>Official CONOPS graphic</div>'">
-        <div class="mc"><span class="ty">📊 infographic</span> <b>Artemis III</b><div class="src">NASA</div></div>
-      </a>
-      <a class="mi" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
-        <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba662.jpeg" alt="Lanyue lander test hardware" loading="lazy">
-        <div class="mc"><span class="ty">📷 photo</span> <b>Lanyue test</b><div class="src">CMSA / gov.cn</div></div>
-      </a>
+      <div class="band"><div class="label">US landing</div><div class="val">Unknown</div><span class="chip">EXAMPLE</span></div>
+      <div class="band"><div class="label">CN goal</div><div class="val">before 2030</div><span class="tag tO">Official</span></div>
+      <div class="band"><div class="label">Demos</div><div class="val">Unknown</div><span class="chip">EXAMPLE</span></div>
     </div>
   </section>
 
   <section class="card" aria-label="Two ways to the Moon">
     <h2>Two ways to the Moon</h2>
-    <p class="src">Dual-path preview · open Architecture for the drill-down shells</p>
     <div class="hpair">
       <a class="way US" href="#arch" data-go="arch" data-open="drill-starship">
         <span class="lbl US">US</span>
         <b>Artemis / commercial HLS</b>
-        <span>Starship · Blue Origin · SLS · New Glenn</span>
+        <span class="pathnames">Starship · Blue Origin · SLS · New Glenn</span>
         <span class="tag tS">Next: Unknown</span>
         <span class="chip">EXAMPLE</span>
       </a>
       <a class="way CN" href="#arch" data-go="arch" data-open="drill-china">
         <span class="lbl CN">CN</span>
         <b>Crewed lunar path</b>
-        <span>LM-10 · Mengzhou · Lanyue</span>
+        <span class="pathnames">LM-10 · Mengzhou · Lanyue</span>
         <span class="tag tO">Goal: before 2030</span>
       </a>
     </div>
@@ -234,12 +218,11 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
     <div class="dial-ring" role="img" aria-label="Too early to call">
       <div class="dial-core"><strong>Too early<br>to call</strong><span>until demos land</span></div>
     </div>
-    <p class="lead">Both sides have credible paths. Uncrewed landings decide the dial — not press calendars. <span class="chip">Confidence: Low</span> <span class="tag tS">Unknown</span></p>
+    <p class="lead"><span class="chip">Confidence: Low</span> <span class="tag tS">Unknown</span></p>
   </section>
 
   <section class="card" aria-label="Moon map">
     <h2>South-pole map</h2>
-    <p class="src">Center is the pole. Pinch or ctrl+scroll to zoom. Markers stay glued to the moon layer. Release springs home.</p>
     <div class="map-wrap">
       <div class="zw" id="zw" role="img" aria-label="South-pole moon disc with example markers glued to the layer">
         <div class="layer" id="layer">
@@ -281,6 +264,7 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
         </div>
       </div>
     </div>
+    <p class="src">Outer-ring past landings are schematic labels, not polar geography. Center is the pole.</p>
     <div class="map-leg">
       <span><i class="us"></i>US next</span>
       <span><i class="cn"></i>CN next</span>
@@ -288,7 +272,7 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
       <span><i class="us hollow"></i>US past</span>
       <span><i class="cn hollow"></i>CN past</span>
     </div>
-    <p class="src">All markers are <span class="chip">EXAMPLE</span> glue points. Replace with sourced sites. Coords stay Unknown in this seed.</p>
+    <p class="src">Markers are <span class="chip">EXAMPLE</span> glue points. Pinch or ctrl+scroll to zoom. Replace them with sourced sites.</p>
 
     <article class="card site-card" id="site-card" aria-live="polite">
       <h3 id="site-title">Site card</h3>
@@ -314,7 +298,7 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
     </details>
     <details class="expander">
       <summary>Full details · past landings</summary>
-      <p class="src">Outer-ring pattern only. Names are labels for the shell, not a sourced coordinate file.</p>
+      <p class="src">Same note as the map: these names are schematic labels, not polar geography.</p>
       <button type="button" class="site" data-id="a11" data-name="Apollo 11" data-side="US" data-kind="Past landing"><span class="lbl US">US</span> <b>Apollo 11</b> <span class="chip">EXAMPLE</span></button>
       <button type="button" class="site" data-id="a12" data-name="Apollo 12" data-side="US" data-kind="Past landing"><span class="lbl US">US</span> <b>Apollo 12</b> <span class="chip">EXAMPLE</span></button>
       <button type="button" class="site" data-id="a15" data-name="Apollo 15" data-side="US" data-kind="Past landing"><span class="lbl US">US</span> <b>Apollo 15</b> <span class="chip">EXAMPLE</span></button>
@@ -325,6 +309,43 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
       <button type="button" class="site" data-id="ce5" data-name="Chang'e-5" data-side="CN" data-kind="Past landing"><span class="lbl CN">CN</span> <b>Chang'e-5</b> <span class="chip">EXAMPLE</span></button>
       <button type="button" class="site" data-id="ce6" data-name="Chang'e-6" data-side="CN" data-kind="Past landing"><span class="lbl CN">CN</span> <b>Chang'e-6</b> <span class="chip">EXAMPLE</span></button>
     </details>
+  </section>
+
+  <div class="hpair" aria-label="Hero media">
+    <a class="hh2" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
+      <img src="https://www.nasa.gov/wp-content/uploads/2023/01/spacex_starship_hls_artemis_iii_2_crew_0_0.jpg" alt="Starship HLS artist concept on the lunar surface" loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link'">
+      <div class="hov2"><span class="lbl US">US</span> <b>Starship HLS</b><div class="hc">SpaceX / NASA · 🎨 RENDERING</div></div>
+    </a>
+    <a class="hh2" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
+      <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba660.jpeg" alt="China manned lunar lander landing and takeoff test" loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link'">
+      <div class="hov2"><span class="lbl CN">CN</span> <b>Lanyue lander test</b><div class="hc">CMSA via english.www.gov.cn</div></div>
+    </a>
+  </div>
+
+  <section class="card" aria-label="Official overview">
+    <h2>Official overview</h2>
+    <p class="src">Remote agency images only · <span class="ty rendering">🎨 RENDERING</span> is not a photo · as-of Unknown</p>
+    <div class="strip">
+      <a class="mi" href="https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/" target="_blank" rel="noopener">
+        <img src="https://www.nasa.gov/wp-content/uploads/2024/11/11-03-24-artemis-3-on-surface.jpg" alt="Starship HLS on the lunar surface, artist concept" loading="lazy">
+        <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>On surface</b><div class="src">SpaceX / NASA</div></div>
+      </a>
+      <a class="mi" href="https://www.blueorigin.com/blue-moon" target="_blank" rel="noopener">
+        <img src="https://d1o72l87sylvqg.cloudfront.net/redstone/gallery-bluemoon_nasa.jpg" alt="Blue Moon lander artist rendering" loading="lazy">
+        <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Blue Moon</b><div class="src">Blue Origin</div></div>
+      </a>
+      <a class="mi" href="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" target="_blank" rel="noopener">
+        <img src="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" alt="Artemis III concept of operations graphic" loading="lazy"
+          onerror="this.outerHTML='<div class=ph>Official CONOPS graphic</div>'">
+        <div class="mc"><span class="ty">📊 infographic</span> <b>Artemis III</b><div class="src">NASA</div></div>
+      </a>
+      <a class="mi" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
+        <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba662.jpeg" alt="Lanyue lander test hardware" loading="lazy">
+        <div class="mc"><span class="ty">📷 photo</span> <b>Lanyue test</b><div class="src">CMSA / gov.cn</div></div>
+      </a>
+    </div>
   </section>
 
   <section class="card" aria-label="Up next">
@@ -341,7 +362,7 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
       <li><b>What this is:</b> a one-file phone dashboard for the U.S. (Artemis / commercial HLS) vs China (crewed lunar) race. Fork the scaffold, then replace Unknowns with sourced facts.</li>
       <li><b>Home:</b> mission control, both ways to the Moon, the race dial, then the south-pole map. The dial is not the whole page.</li>
       <li><b>Tabs:</b> Home · Architecture · Timeline · Path · Media · Claims · Glossary · Sources.</li>
-      <li><b>Map:</b> filled dots are next-target examples near the pole. Hollow dots are past-landing examples on the outer ring. Tap a row for the site card. Dots are glued to the moon layer.</li>
+      <li><b>Map:</b> filled dots are next-target examples near the pole. Hollow dots on the outer ring are schematic past-landing labels, not polar geography. Tap a row for the site card. Dots are glued to the moon layer.</li>
       <li><b>Status symbols:</b> ✓ done · ● on track / in progress · ◐ at risk · ✕ slipped · ? unknown · ○ not started.</li>
       <li><b>Dates:</b> hollow ○ = original plan; solid ● = current expectation; the arrow is drift. A dashed slip pill is chrome, not a sourced fact, unless a tag says Official.</li>
       <li><b>Pictures:</b> tap a thumbnail to open the official page. <span class="ty rendering">🎨 RENDERING</span> means an artist concept, not a photo.</li>
@@ -637,14 +658,12 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
     <div class="band">
       <div class="label">Demo minimum CONOPS</div>
       <div class="val">Unknown tankers <span class="tag tS">Unknown</span> <span class="est">Assumption</span> <span class="chip">EXAMPLE</span></div>
-      <p class="src">Shell only. The number is Unknown until a source you choose says otherwise.</p>
-      <div class="bar"><i style="width:18%"></i></div>
+      <p class="src">Shell only. The number is Unknown until a source you choose says otherwise. No progress bar until that count is sourced.</p>
     </div>
     <div class="band">
       <div class="label">Crew transport / land / return CONOPS</div>
       <div class="val">Unknown tankers <span class="tag tS">Unknown</span> <span class="chip">EXAMPLE</span></div>
-      <p class="src">Separate from the demo band. Not a first-demo minimum, and not a published count.</p>
-      <div class="bar crew"><i style="width:8%"></i></div>
+      <p class="src">Separate from the demo band. Not a first-demo minimum, and not a published count. No progress bar until that count is sourced.</p>
     </div>
   </div>
 
@@ -807,13 +826,17 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
   <h2>Glossary</h2>
   <div class="card gloss">
     <dl>
+      <dt>Artemis</dt><dd>NASA’s crewed lunar campaign. On Home it is the U.S. path next to commercial HLS.</dd>
       <dt>HLS</dt><dd>Human Landing System. The vehicle that takes crew from lunar orbit to the surface and back.</dd>
+      <dt>CLPS</dt><dd>Commercial Lunar Payload Services. NASA program for commercial cargo deliveries to the Moon. Not a crewed landing path in this seed.</dd>
       <dt>CONOPS</dt><dd>Concept of operations. Which flights and which architecture a given mission class uses. Demo and crew stay separate.</dd>
       <dt>Starship HLS</dt><dd>SpaceX lunar lander variant for the Artemis crew-landing path.</dd>
       <dt>Blue Moon</dt><dd>Blue Origin lunar lander. Crewed variant is a separate path from Starship HLS.</dd>
       <dt>New Glenn</dt><dd>Blue Origin heavy launcher. Its own panel in this seed, not a synonym for SLS.</dd>
       <dt>SLS</dt><dd>Space Launch System. NASA heavy-lift rocket that launches Orion.</dd>
       <dt>Orion</dt><dd>NASA crew capsule for Artemis, Earth to lunar orbit.</dd>
+      <dt>CMSA</dt><dd>China Manned Space Agency. Crewed spaceflight program (cmse.gov.cn). Lanyue and Mengzhou are credited here.</dd>
+      <dt>CNSA</dt><dd>China National Space Administration. National space agency (cnsa.gov.cn).</dd>
       <dt>LM-10</dt><dd>Long March-10. China’s heavy-lift rocket for the crewed lunar path.</dd>
       <dt>Mengzhou</dt><dd>China’s next crewed spacecraft for lunar missions.</dd>
       <dt>Lanyue</dt><dd>China’s crewed lunar lander.</dd>
@@ -822,6 +845,7 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-ali
       <dt>Depot / tanker</dt><dd>Orbital propellant storage, and the flights that fill it before a lander departs. Counts stay Unknown in this seed.</dd>
       <dt>RENDERING</dt><dd>An artist’s concept, not a photograph of flown hardware.</dd>
       <dt>EXAMPLE</dt><dd>A placeholder row, marker, or counter. Not a sourced fact.</dd>
+      <dt>Unknown</dt><dd>Not sourced yet. An Unknown chip is not a fact and not a stand-in for a guess.</dd>
       <dt>Claims log</dt><dd>The tab where sourced statements go after import. Empty in this file.</dd>
     </dl>
   </div>

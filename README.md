@@ -1,51 +1,54 @@
-Version: scaffold v1 (2026-10-25).
+Version: scaffold v1 (2026-10-25). Thickened shells stay EXAMPLE / Unknown.
 
 # Moon Race HUD — public scaffold (v0)
 
-This is the lean public HUD scaffold for Moon race trackers. Copy `index.html` to start a HUD. See [`ASSETS.md`](ASSETS.md) for official image URLs. Friends pull the scaffold via the raw GitHub URL (`raw.githubusercontent.com`) without needing Drive.
+Chat-first HUD seed for Moon race trackers. No connectors required. Copy `index.html` to start a HUD. See [`ASSETS.md`](ASSETS.md) for official image URLs. Friends pull the file over raw HTTPS (`raw.githubusercontent.com`). A GitHub connector is not required, and an X connector is not used.
 
-Lean, public-safe single-file HUD seed for template imports. **Not** a copy of anyone’s live tracker.
+This is not a copy of anyone’s live tracker. Dates, marker positions, and counters ship as EXAMPLE or Unknown.
 
 | File | Role |
 |---|---|
-| `index.html` | Fork-first seed (≤300KB HTML; remote official images OK) |
-| `ASSETS.md` | Official public URLs + credits only |
-| `scaffold_home_390.png` | Phone Home screenshot at 390px |
+| `index.html` | Single-file seed at the repo root (remote official images only) |
+| `ASSETS.md` | Official public URLs and credits |
+| `scaffold_home_390.png` | Phone Home preview at 390px |
 
-## Why this exists
-Template rev1 shipped a dial+text stub (no map, no lander art, no working media). Product value is **shell + media + aggregation**. First HUD job after import: **copy scaffold → fill Unknowns**, not invent a new Home.
+## 1. Who this is for
+A new Moon race tracker. The seed is the know-how and a blank HUD: mission control, both ways to the Moon, a south-pole map, per-path drill-downs, and an empty claims log. It is not a hand-off of someone else’s files.
 
-## Fork workflow
-1. Create the owner’s **own** empty tracker folder in Drive (or local). Never copy another owner’s LunaBot Drive tree (this note is mainly for our internal template-import testing).
-2. Copy `index.html` → `moon_hud_v1.0.html` to start a HUD.
-3. Fill hero/architecture/media slots from `ASSETS.md` (or newer official URLs); replace EXAMPLE timeline rows; set as-of dates.
-4. Keep CONOPS bands separate (demo minimum vs crew transport/land/return); keep named refuel steps.
-5. Phone Home screenshot (~390px) **before** upload when the owner asks.
-6. Version + changelog; archive old builds — never overwrite.
+## 2. Ask permission before fetching
+Ask the owner’s permission before fetching this public repo. Raw HTTPS is enough to read `index.html`. No GitHub connector. No X connector.
 
-## Architect Drive access (new owner)
-Templates ship **know-how + this scaffold**, not someone else’s files (internal testing — keep each owner’s Drive folder separate).
+## 3. Fork `index.html` and fill Unknowns
+Copy `index.html` to start the HUD. Fill hero, architecture, and media slots from [`ASSETS.md`](ASSETS.md) or newer official URLs. Replace EXAMPLE timeline rows, map glue points, and drill-down shells, and set as-of dates. Leave the claims log empty until a row has a source.
 
-1. In the owner’s Google Drive, create an empty folder, e.g. `Moon Race Tracker` (name is theirs).
-2. Note the **folder ID** only (from the Drive URL). Prefer relative links inside the HTML deliverable; when tools need Drive, use folder/file **IDs**, never brittle path strings or another bot’s IDs (this note is mainly for our internal template-import testing).
-3. Deliverables land in that folder:
-   - `moon_hud_vN.html` — current HUD
-   - `moon_hud_vN_home_390.png` — phone Home screenshot
-   - `CHANGELOG_vN.md` — what changed
-4. Optional: `Archive/` subfolder for prior `vN` HTML/PNG/changelogs (never overwrite current).
-5. Do **not** hunt another owner’s tracker folder for a baseline (internal testing — keep each owner’s Drive folder separate). Do **not** paste private Drive media URLs into the HUD — official public URLs + credits only (`ASSETS.md`).
+Keep the demo CONOPS band separate from the crew transport / land / return band, and keep the named refuel steps. The demo N-of-M counter is an EXAMPLE. Do not paste a live tanker count.
+
+## 4. Deliver in chat, then open with Chrome
+Send the HTML and a phone Home PNG in chat. The owner downloads them and opens the HTML with Chrome. Confirm tabs, hero links, and map pinch or ctrl+scroll before calling the build done.
+
+`scaffold_home_390.png` is the seed’s Home at 390px. A filled tracker gets its own screenshot at delivery.
+
+## What the seed includes
+Shells only. Replace them from sources.
+
+- Mission control, race dial, and a “two ways to the Moon” preview
+- South-pole map with EXAMPLE past-landing and next-target markers, a legend, and a site-card stub
+- Architecture drill-downs for Starship, Blue Origin, SLS, New Glenn, and China (Steps · What’s next · Pieces to finish · Compare stub)
+- Timeline drift chrome (○ → ●) and an EXAMPLE slip pill
+- Separate demo and crew CONOPS bands, with named refuel steps and an EXAMPLE N-of-M
+- How-it-works and full-details expanders
+- Official media strip (remote images only)
+- Claims log tab, empty until you fill it after import
 
 ## Open the HUD
-Drive’s in-browser preview **breaks** relative links and much of the JS (map pinch-zoom, tabs). Same tip as the HTML Demo Library:
+1. Download the `.html` from chat (or from the raw GitHub URL).
+2. **Open with Chrome.**
+3. Confirm the tabs, the hero links, and map pinch / ctrl+scroll.
 
-1. Download the `.html` file (or open it from a local/box path).
-2. **Open with Chrome** (right-click in Drive → Open with → Chrome, or download then open in Chrome).
-3. Confirm tabs, hero links, and map pinch/ctrl+scroll work before calling the build done.
+Drive’s in-browser preview breaks the map and the tabs. That only matters if a copy is stored in Drive later. Download the file and open it in Chrome either way.
 
-Friends who only need the seed can skip Drive. After this scaffold is on `main`, open `index.html` from this repo’s raw GitHub URL on `raw.githubusercontent.com`. No Drive share is required.
+## Drive (optional, later)
+Drive is not the starting path. Use it only when the owner wants a folder and points at one they created. Do not copy another owner’s tracker Drive tree (internal testing — keep each owner’s Drive folder separate). Official public image URLs only — see `ASSETS.md`.
 
 ## Privacy
 No owner Drive IDs, family/Gmail/home addresses, portfolio stakes, teammate bot names (this note is mainly for our internal template-import testing), or private paths in the scaffold.
-
-## Design review
-Optional. The 12-row checklist is the hard gate for the word “HUD.”

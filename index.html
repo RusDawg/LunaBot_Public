@@ -12,44 +12,42 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);font:16px/1.45 var(--font);-webkit-text-size-adjust:100%;overflow-x:hidden}
-body{padding-bottom:84px;min-height:100vh}
+body{padding-bottom:96px;min-height:100vh}
 a{color:var(--amb)}
 header{position:sticky;top:0;z-index:8;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
 header h1{margin:0;font-size:18px;color:var(--amb)}
-.asof{color:var(--cap);font-size:15px}.sp{flex:1}
-.badge{background:rgba(245,184,61,.15);color:var(--amb);border:1px solid rgba(245,184,61,.45);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;min-height:36px}
+.asof{color:var(--cap);font-size:16px}.sp{flex:1}
+.badge{background:rgba(245,184,61,.15);color:var(--amb);border:1px solid rgba(245,184,61,.45);border-radius:999px;padding:6px 12px;font-size:16px;font-weight:700;min-height:36px}
 nav{display:flex;gap:4px;padding:6px 8px;border-bottom:1px solid var(--line);background:var(--bg);overflow-x:auto;-webkit-overflow-scrolling:touch}
-nav button{background:none;border:0;color:var(--cap);font-size:15px;padding:10px 12px;min-height:var(--tap);border-radius:8px;cursor:pointer;white-space:nowrap;flex:none}
+nav button{background:none;border:0;color:var(--cap);font:16px/1.2 var(--font);padding:10px 12px;min-height:var(--tap);border-radius:8px;cursor:pointer;white-space:nowrap;flex:none}
 nav button.on{background:var(--amb);color:#111;font-weight:700}
 main{max-width:430px;margin:0 auto;padding:12px 14px 28px}
 @media(min-width:700px){main{max-width:720px;padding:20px 24px 40px}body{padding-bottom:0}
 nav{position:sticky;top:52px;z-index:7;justify-content:flex-start;flex-wrap:wrap}}
-@media(max-width:699px){nav{position:fixed;bottom:0;left:0;right:0;z-index:9;justify-content:space-around;border-top:1px solid var(--amb);border-bottom:0;background:var(--card);padding:4px 2px calc(4px + env(safe-area-inset-bottom))}
-nav button{padding:8px 6px;font-size:13px}}
+@media(max-width:699px){nav{position:fixed;bottom:0;left:0;right:0;z-index:9;justify-content:flex-start;border-top:1px solid var(--amb);border-bottom:0;background:var(--card);padding:4px 8px calc(4px + env(safe-area-inset-bottom))}
+nav button{padding:10px 12px;font-size:16px}}
 .view{display:none}.view.on{display:block}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:0 0 12px}
-.card h2{margin:0 0 8px;font-size:17px}
+.card h2,.view>h2{margin:0 0 8px;font-size:18px}
 .card h3{margin:12px 0 6px;font-size:16px;color:var(--cap)}
-.src{color:var(--cap);font-size:14px}
-.lbl{display:inline-block;font-weight:800;color:#fff;border-radius:4px;padding:0 6px;font-size:14px;min-width:34px;text-align:center}
+.src{color:var(--cap);font-size:16px}
+.lbl{display:inline-block;font-weight:800;color:#fff;border-radius:4px;padding:0 6px;font-size:16px;min-width:34px;text-align:center}
 .lbl.US{background:var(--us)}.lbl.CN{background:var(--cn)}
-.chip{display:inline-block;border:1px solid var(--amb);color:var(--amb);border-radius:14px;padding:2px 10px;font-size:14px;font-weight:600}
-.tag{display:inline-block;font-size:13px;font-weight:700;border-radius:10px;padding:2px 8px;border:1px solid;white-space:nowrap;margin-right:4px}
+.chip{display:inline-block;border:1px solid var(--amb);color:var(--amb);border-radius:14px;padding:2px 10px;font-size:16px;font-weight:600}
+.tag{display:inline-block;font-size:16px;font-weight:700;border-radius:10px;padding:2px 8px;border:1px solid;white-space:nowrap;margin-right:4px}
 .tO{color:#8fe0b0;border-color:#8fe0b0}.tC{color:#9cc4ff;border-color:#9cc4ff}
 .tU{color:#ffd27a;border-color:#ffd27a;border-style:dashed}.tS{color:#b9bec7;border-color:#b9bec7;border-style:dotted}
-.st{display:inline-block;font-size:14px;font-weight:700;border-radius:10px;padding:2px 8px;background:#2a3038;border:1px solid #4a515c;white-space:nowrap}
-.est{display:inline-block;font-size:13px;font-weight:700;border:1px dashed var(--cap);border-radius:10px;padding:1px 8px;color:var(--cap)}
-.ty{display:inline-block;font-size:13px;font-weight:700;border:1px solid var(--cap);border-radius:8px;padding:0 6px;color:var(--cap)}
+.st{display:inline-block;font-size:16px;font-weight:700;border-radius:10px;padding:2px 8px;background:#2a3038;border:1px solid #4a515c;white-space:nowrap}
+.est{display:inline-block;font-size:16px;font-weight:700;border:1px dashed var(--cap);border-radius:10px;padding:1px 8px;color:var(--cap)}
+.ty{display:inline-block;font-size:16px;font-weight:700;border:1px solid var(--cap);border-radius:8px;padding:0 6px;color:var(--cap)}
 .ty.rendering{color:#111;background:var(--amb);border-color:var(--amb)}
-/* Hero pair */
 .hpair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.hh2{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0c0e14;color:#fff;text-decoration:none;height:150px}
+.hh2{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0c0e14;color:#fff;text-decoration:none;height:150px;min-height:var(--tap)}
 .hh2 img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1f26}
 .hov2{position:absolute;left:0;right:0;bottom:0;padding:8px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.9) 40%);text-shadow:0 1px 3px #000}
-.hov2 b{font-size:15px;display:block}.hov2 .hc{font-size:12px;color:#e6e8ec}
-@media(max-width:699px){.hh2{height:120px}.hov2 b{font-size:14px}}
-@media(min-width:700px){.hpair{grid-template-columns:1fr 1fr}.hh2{height:220px}}
-/* Dial */
+.hov2 b{font-size:16px;display:block}.hov2 .hc{font-size:16px;color:#e6e8ec}
+@media(max-width:699px){.hh2{height:120px}}
+@media(min-width:700px){.hh2{height:220px}}
 .dial{text-align:center;padding:6px 4px}
 .dial-ring{width:140px;height:140px;margin:0 auto 10px;border-radius:50%;
   background:conic-gradient(from 210deg,var(--us) 0 55deg,#4a515c 55deg 180deg,var(--cn) 180deg 235deg,#4a515c 235deg 360deg);
@@ -57,9 +55,13 @@ nav button{padding:8px 6px;font-size:13px}}
 .dial-ring::after{content:"";position:absolute;inset:14px;background:var(--bg);border-radius:50%;border:1px solid var(--line)}
 .dial-core{position:relative;z-index:1;padding:8px}
 .dial-core strong{display:block;font-size:16px;line-height:1.25}
-.dial-core span{font-size:12px;color:var(--cap)}
+.dial-core span{font-size:16px;color:var(--cap)}
 .lead{margin:0;font-size:16px}
-/* Map / pinch-zoom */
+.mc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mc-grid .band{margin:0}
+.way{display:flex;flex-direction:column;align-items:flex-start;gap:6px;background:#0c0e14;border:1px solid var(--line);border-radius:12px;padding:12px;color:var(--txt);text-decoration:none;min-height:var(--tap)}
+.way b{font-size:16px}
+.way.US{border-top:4px solid var(--us)}.way.CN{border-top:4px solid var(--cn)}
 .map-wrap{display:flex;justify-content:center;margin:8px 0 6px}
 .zw{position:relative;width:min(86vw,320px);aspect-ratio:1;border-radius:50%;overflow:hidden;touch-action:none;cursor:grab;background:#05080c;
   border:1px solid var(--line);box-shadow:0 0 0 1px rgba(245,184,61,.12),0 10px 32px rgba(0,0,0,.45);-webkit-user-select:none;user-select:none}
@@ -70,18 +72,29 @@ nav button{padding:8px 6px;font-size:13px}}
   background:var(--amb);box-shadow:0 0 0 2px rgba(18,20,23,.9),0 0 8px rgba(245,184,61,.5);pointer-events:none}
 .zw .pt.cn{background:var(--cn);box-shadow:0 0 0 2px rgba(18,20,23,.9),0 0 8px rgba(200,70,58,.5)}
 .zw .pt.us{background:var(--us);box-shadow:0 0 0 2px rgba(18,20,23,.9),0 0 8px rgba(47,111,208,.5)}
-.map-leg{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;color:var(--cap);font-size:13px;margin-top:6px}
-.map-leg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
-/* Architecture tiles */
+.zw .pt.us.past{background:transparent;border:2px solid var(--us);box-shadow:none}
+.zw .pt.cn.past{background:transparent;border:2px solid var(--cn);box-shadow:none}
+.zw .pt.hot,.zw .pt.us.past.hot,.zw .pt.cn.past.hot{z-index:3;box-shadow:0 0 0 3px #111,0 0 0 6px var(--amb)}
+.map-leg{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;color:var(--cap);font-size:16px;margin-top:6px}
+.map-leg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle;box-sizing:border-box}
+.map-leg i.us{background:var(--us)}.map-leg i.cn{background:var(--cn)}.map-leg i.amb{background:var(--amb)}
+.map-leg i.hollow.us{background:transparent;border:2px solid var(--us)}
+.map-leg i.hollow.cn{background:transparent;border:2px solid var(--cn)}
+.site{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;width:100%;text-align:left;background:#12161c;color:var(--txt);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:0 0 8px;min-height:var(--tap);cursor:pointer;font:16px/1.35 var(--font)}
+.site.on{border-color:var(--amb);box-shadow:0 0 0 1px var(--amb)}
+.site-card dl{display:grid;grid-template-columns:88px 1fr;gap:4px 8px;margin:8px 0 0}
+.site-card dt{color:var(--cap);margin:0}.site-card dd{margin:0}
 .seq{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .tile{flex:1 1 140px;max-width:220px;background:#0c0e14;border:1px solid var(--line);border-radius:10px;padding:6px;color:var(--txt);text-decoration:none;display:block;min-height:var(--tap)}
 .tile img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block;background:#1a1f26}
-.noimg{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;text-align:center;border:1px dashed var(--cap);border-radius:6px;color:var(--cap);font-size:14px;padding:6px}
-.tl{font-weight:700;font-size:14px;color:var(--amb);margin-bottom:4px}
-.tc{font-size:14px;margin-top:4px}.cr{font-size:12px;color:var(--cap)}
+.noimg{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;text-align:center;border:1px dashed var(--cap);border-radius:6px;color:var(--cap);font-size:16px;padding:6px}
+.tl{font-weight:700;font-size:16px;color:var(--amb);margin-bottom:4px}
+.tc{font-size:16px;margin-top:4px}.cr{font-size:16px;color:var(--cap)}
 .bnd{position:relative;overflow:hidden}.bnd.US{border-left:5px solid var(--us)}.bnd.CN{border-left:5px solid var(--cn)}
-.side-note{margin:6px 0 0;color:var(--cap);font-size:14px}
-/* Timeline */
+.side-note{margin:6px 0 0;color:var(--cap);font-size:16px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.cmp div{background:#12161c;border:1px dashed var(--line);border-radius:8px;padding:8px}
+.cmp b{display:block}
 .tl-list{list-style:none;margin:0;padding:0}
 .tl-list li{border-top:1px solid var(--line);padding:12px 0;min-height:var(--tap)}
 .tl-list li:first-child{border-top:0;padding-top:2px}
@@ -90,37 +103,63 @@ nav button{padding:8px 6px;font-size:13px}}
 .pm.s{background:var(--txt)}.pm.q{border-style:dashed;border-color:var(--cap)}
 .pl{flex:1 1 24px;min-width:24px;height:3px;background:var(--txt);position:relative}
 .pl:after{content:"";position:absolute;right:-2px;top:-5px;border-left:9px solid var(--txt);border-top:6px solid transparent;border-bottom:6px solid transparent}
-/* Refuel / CONOPS */
+.slip{display:inline-block;font-size:16px;font-weight:700;border:1px dashed var(--amb);color:var(--amb);border-radius:10px;padding:2px 8px}
 .refuel{display:flex;align-items:center;gap:12px;background:rgba(0,0,0,.28);border-radius:12px;padding:12px;margin:8px 0;min-height:var(--tap)}
-.n-of-m{font-size:28px;font-weight:800;color:var(--amb);min-width:72px;text-align:center;line-height:1.1}
-.n-of-m small{display:block;font-size:11px;color:var(--cap);font-weight:600;letter-spacing:.05em}
+.n-of-m{font-size:28px;font-weight:800;color:var(--amb);min-width:88px;text-align:center;line-height:1.1}
+.n-of-m small{display:block;font-size:16px;color:var(--cap);font-weight:600;letter-spacing:.04em}
 .steps{list-style:none;margin:0;padding:0}
 .steps li{border-top:1px solid var(--line);padding:10px 0;display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start;min-height:var(--tap)}
 .steps li:first-child{border-top:0}
 .dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--cap);margin-top:2px}
 .dot.done{background:var(--ok);border-color:var(--ok)}.dot.next{border-color:var(--amb);box-shadow:0 0 0 3px rgba(245,184,61,.25)}
 .band{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0}
-.band .label{font-size:12px;color:var(--cap);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.band .label{font-size:16px;color:var(--cap);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
 .band .val{font-size:16px;font-weight:700;margin:2px 0}
 .bar{height:8px;border-radius:999px;background:#1c273a;overflow:hidden;margin-top:6px}
 .bar>i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--us),#7ec0ff)}
 .bar.crew>i{background:linear-gradient(90deg,#6b7c96,#a8b6cc)}
-/* Media gallery */
-.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:8px}
+.strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.strip .mi{min-width:210px;flex:none}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:8px}
 .mi{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;color:var(--txt);text-decoration:none;display:block;min-height:var(--tap)}
 .mi img,.ph{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#2a3038}
-.ph{display:flex;align-items:center;justify-content:center;color:var(--cap);font-size:14px;text-align:center;padding:8px;border:0}
-.mi .mc{padding:8px;font-size:14px}
-/* How-to */
-.howto summary{color:var(--amb);cursor:pointer;font-size:16px;font-weight:700;padding:4px 0;list-style:none;min-height:var(--tap);display:flex;align-items:center}
-.howto summary::-webkit-details-marker{display:none}
-.howto ul{padding-left:20px;margin:6px 0;color:var(--cap)}.howto li{margin:8px 0;font-size:15px;color:var(--txt)}
+.ph{display:flex;align-items:center;justify-content:center;color:var(--cap);font-size:16px;text-align:center;padding:8px;border:0}
+.mi .mc{padding:8px;font-size:16px}
+.expander{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;margin:0 0 12px}
+.expander summary{color:var(--amb);cursor:pointer;font-size:16px;font-weight:700;list-style:none;min-height:var(--tap);display:flex;align-items:center}
+.expander summary::-webkit-details-marker{display:none}
+.expander ul{padding-left:20px;margin:6px 0}.expander li{margin:8px 0}
+.expander .expander{margin-top:8px;background:#14181e}
 .gloss dt{color:var(--us);font-weight:700;margin-top:8px}.gloss dd{margin:2px 0 0;color:var(--cap)}
-.sources ul{margin:0;padding-left:18px}.sources li{margin:0 0 8px;color:var(--cap)}
-.sources a{color:var(--amb)}
-footer{margin-top:8px;padding:12px 4px 8px;font-size:13px;color:#6b7c96;text-align:center;border-top:1px dashed var(--line)}
-.warn-banner{background:#2a2410;border:1px solid var(--amb);border-radius:10px;padding:10px 12px;margin:0 0 12px;font-size:14px;color:var(--txt)}
-.row2{display:grid;gap:10px}@media(min-width:700px){.row2{grid-template-columns:1fr 1fr}}
+.sources ul{margin:0;padding-left:18px}.sources li{margin:0 0 4px;color:var(--cap);min-height:var(--tap);display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.sources a,.src a,.expander a{color:var(--amb);display:inline-flex;align-items:center;min-height:var(--tap)}
+.empty{border:1px dashed var(--amb);background:#221e12;text-align:center;padding:22px 14px}
+.empty h2{color:var(--amb)}
+footer{margin-top:8px;padding:12px 4px 8px;font-size:16px;color:#9aa6b8;text-align:center;border-top:1px dashed var(--line)}
+.warn-banner{background:#2a2410;border:1px solid var(--amb);border-radius:10px;padding:10px 12px;margin:0 0 12px;font-size:16px;color:var(--txt)}
+@media(max-width:699px){
+  header{padding:8px 12px;gap:4px 8px;flex-wrap:nowrap}
+  header .asof{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  header .sp{display:none}
+  .warn-banner{padding:8px 10px;margin:0 0 8px}
+  main{padding:8px 12px 96px}
+  .card{padding:8px 10px;margin:0 0 8px}
+  .card h2{margin:0 0 2px;font-size:18px}
+  .src{line-height:1.25}
+  .mc-grid{gap:6px}
+  .mc-grid .band{display:flex;flex-wrap:nowrap;align-items:center;gap:4px;padding:4px 6px;margin:0;min-height:44px}
+  .mc-grid .band .label{letter-spacing:0;line-height:1.2;text-transform:none;white-space:nowrap}
+  .mc-grid .band .val{margin:0;line-height:1.2;white-space:nowrap}
+  #v-home .hpair{grid-template-columns:1fr;gap:6px;margin:0}
+  #v-home .way{position:relative;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 8px;padding:6px 8px;min-height:44px}
+  #v-home .way b{line-height:1.2}
+  #v-home .way .pathnames{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  #v-home > .hpair{grid-template-columns:1fr 1fr}
+  .dial{padding:0}
+  .dial-ring{width:96px;height:96px;margin:0 auto 4px}
+  .dial-ring::after{inset:12px}
+  .lead{line-height:1.25}
+}
 </style>
 </head>
 <body>
@@ -136,53 +175,56 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:13px;color:#6b7c96;text-ali
   <button type="button" data-v="timeline">Timeline</button>
   <button type="button" data-v="path">Path</button>
   <button type="button" data-v="media">Media</button>
+  <button type="button" data-v="claims">Claims</button>
   <button type="button" data-v="glossary">Glossary</button>
   <button type="button" data-v="sources">Sources</button>
 </nav>
 <main>
 <!-- HOME -->
 <section class="view on" id="v-home" aria-label="Home">
-  <div class="warn-banner"><b>TEMPLATE SCAFFOLD</b> — fork and fill from primary sources. Placeholder dates and Unknown chips are <em>not</em> a live baseline.</div>
+  <div class="warn-banner"><b>TEMPLATE SCAFFOLD</b> — dates and Unknowns are not a live baseline.</div>
 
-  <div class="hpair" aria-label="Hero media">
-    <a class="hh2" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
-      <img src="https://www.nasa.gov/wp-content/uploads/2023/01/spacex_starship_hls_artemis_iii_2_crew_0_0.jpg" alt="Starship HLS artist concept on the lunar surface" loading="lazy"
-        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link ↗'">
-      <div class="hov2"><span class="lbl US">US</span> <b>Starship HLS</b><div class="hc">SpaceX / NASA · 🎨 RENDERING ↗</div></div>
-    </a>
-    <a class="hh2" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
-      <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba660.jpeg" alt="China manned lunar lander landing and takeoff test" loading="lazy"
-        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link ↗'">
-      <div class="hov2"><span class="lbl CN">CN</span> <b>Lanyue lander test</b><div class="hc">CMSA via english.www.gov.cn ↗</div></div>
-    </a>
-  </div>
+  <section class="card" aria-label="Mission control">
+    <h2>Mission control</h2>
+    <div class="mc-grid">
+      <div class="band"><div class="label">Call</div><div class="val">Too early</div><span class="tag tS">Unknown</span></div>
+      <div class="band"><div class="label">US landing</div><div class="val">Unknown</div><span class="chip">EXAMPLE</span></div>
+      <div class="band"><div class="label">CN goal</div><div class="val">before 2030</div><span class="tag tO">Official</span></div>
+      <div class="band"><div class="label">Demos</div><div class="val">Unknown</div><span class="chip">EXAMPLE</span></div>
+    </div>
+  </section>
 
-  <details class="card howto">
-    <summary>How to use this ▸</summary>
-    <ul>
-      <li><b>What this is:</b> a one-file phone dashboard for the U.S. (Artemis / commercial HLS) vs China (crewed lunar / ILRS) race. Fork the scaffold, then replace Unknowns with sourced facts.</li>
-      <li><b>Tabs:</b> Home · Architecture · Timeline · Path (CONOPS + refuel) · Media · Glossary · Sources.</li>
-      <li><b>Status symbols:</b> ✓ done · ● on track / in progress · ◐ at risk · ✕ slipped · ? unknown · ○ not started.</li>
-      <li><b>Dates:</b> hollow ○ = original plan; solid ● = current expectation; arrow = drift. Dashed “Estimate” = reasoning, not a sourced fact.</li>
-      <li><b>Credibility:</b> Official · Credible · Unconfirmed · Unknown. Blue = US, red = China (label always present).</li>
-      <li><b>Pictures:</b> tap a thumbnail to open the official page. <span class="ty rendering">🎨 RENDERING</span> = artist concept, not a photo.</li>
-      <li><b>Open the file:</b> download HTML and use <b>Open with Chrome</b> (Drive’s in-browser preview breaks JS / relative links).</li>
-    </ul>
-  </details>
+  <section class="card" aria-label="Two ways to the Moon">
+    <h2>Two ways to the Moon</h2>
+    <div class="hpair">
+      <a class="way US" href="#arch" data-go="arch" data-open="drill-starship">
+        <span class="lbl US">US</span>
+        <b>Artemis / commercial HLS</b>
+        <span class="pathnames">Starship · Blue Origin · SLS · New Glenn</span>
+        <span class="tag tS">Next: Unknown</span>
+        <span class="chip">EXAMPLE</span>
+      </a>
+      <a class="way CN" href="#arch" data-go="arch" data-open="drill-china">
+        <span class="lbl CN">CN</span>
+        <b>Crewed lunar path</b>
+        <span class="pathnames">LM-10 · Mengzhou · Lanyue</span>
+        <span class="tag tO">Goal: before 2030</span>
+      </a>
+    </div>
+  </section>
 
   <section class="card dial" aria-label="Race status">
     <h2>Race dial</h2>
     <div class="dial-ring" role="img" aria-label="Too early to call">
       <div class="dial-core"><strong>Too early<br>to call</strong><span>until demos land</span></div>
     </div>
-    <p class="lead">Both sides have credible paths. Tanker demos and uncrewed landings decide the dial — not press calendars. <span class="chip">Confidence: Low</span> <span class="tag tS">Unknown</span></p>
+    <p class="lead"><span class="chip">Confidence: Low</span> <span class="tag tS">Unknown</span></p>
   </section>
 
   <section class="card" aria-label="Moon map">
-    <h2>South-pole map shell</h2>
-    <p class="src">Pinch or ctrl+scroll to zoom · markers glued to the moon layer · release springs home</p>
+    <h2>South-pole map</h2>
     <div class="map-wrap">
-      <div class="zw" id="zw" role="img" aria-label="Moon disc with glued markers — pinch or ctrl-scroll to zoom">
+      <div class="zw" id="zw" role="img" aria-label="South-pole moon disc with example markers glued to the layer">
         <div class="layer" id="layer">
           <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
@@ -192,166 +234,516 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:13px;color:#6b7c96;text-ali
             </defs>
             <circle cx="200" cy="200" r="200" fill="#1a1f26"/>
             <circle cx="200" cy="200" r="188" fill="url(#g)"/>
-            <g fill="#5a6570" opacity=".55">
-              <circle cx="118" cy="140" r="28"/><circle cx="210" cy="110" r="18"/><circle cx="265" cy="175" r="42"/>
-              <circle cx="155" cy="230" r="22"/><circle cx="240" cy="268" r="31"/><circle cx="95" cy="250" r="14"/>
-              <circle cx="300" cy="240" r="16"/><circle cx="175" cy="165" r="10"/>
+            <g fill="#5a6570" opacity=".45">
+              <circle cx="188" cy="176" r="14"/><circle cx="214" cy="168" r="9"/><circle cx="176" cy="214" r="18"/>
+              <circle cx="230" cy="208" r="11"/><circle cx="198" cy="232" r="8"/><circle cx="160" cy="188" r="7"/>
             </g>
-            <ellipse cx="290" cy="200" rx="90" ry="180" fill="#0b0f14" opacity=".28"/>
-            <!-- south-pole hint arc -->
-            <path d="M120 310 Q200 360 280 310" fill="none" stroke="#F5B83D" stroke-width="2" opacity=".35" stroke-dasharray="4 4"/>
+            <circle cx="200" cy="200" r="36" fill="none" stroke="#F5B83D" stroke-width="1.5" opacity=".55" stroke-dasharray="3 3"/>
+            <circle cx="200" cy="200" r="78" fill="none" stroke="#F5B83D" stroke-width="1" opacity=".35" stroke-dasharray="4 4"/>
+            <circle cx="200" cy="200" r="132" fill="none" stroke="#c5ccd4" stroke-width="1" opacity=".28"/>
+            <path d="M200 164 V236 M164 200 H236" fill="none" stroke="#F5B83D" stroke-width="1" opacity=".45"/>
           </svg>
-          <span class="pt us" data-u="-0.18" data-v="0.62" title="US candidate zone (example)"></span>
-          <span class="pt cn" data-u="0.22" data-v="0.55" title="CN candidate zone (example)"></span>
-          <span class="pt" data-u="0.05" data-v="0.72" title="Shackleton rim (example)"></span>
+          <!-- Next targets, near the pole. u/v are EXAMPLE glue points, not surveyed coordinates. -->
+          <span class="pt us" data-id="shackleton" data-u="0.08" data-v="-0.06" title="Shackleton rim (example)"></span>
+          <span class="pt us" data-id="gerlache" data-u="-0.14" data-v="0.02" title="de Gerlache (example)"></span>
+          <span class="pt us" data-id="haworth" data-u="0.12" data-v="0.14" title="Haworth (example)"></span>
+          <span class="pt cn" data-id="nobile" data-u="-0.06" data-v="0.16" title="Nobile rim (example)"></span>
+          <span class="pt cn" data-id="malapert" data-u="0.18" data-v="-0.10" title="Malapert (example)"></span>
+          <span class="pt us" data-id="connecting" data-u="-0.18" data-v="-0.12" title="Connecting Ridge (example)"></span>
+          <span class="pt" data-id="amundsen" data-u="0.00" data-v="0.22" title="Amundsen rim (example)"></span>
+          <!-- Past landings, outer ring, same EXAMPLE glue. -->
+          <span class="pt us past" data-id="a11" data-u="-0.52" data-v="-0.40" title="Apollo 11 (example)"></span>
+          <span class="pt us past" data-id="a12" data-u="-0.66" data-v="0.12" title="Apollo 12 (example)"></span>
+          <span class="pt us past" data-id="a15" data-u="-0.22" data-v="-0.64" title="Apollo 15 (example)"></span>
+          <span class="pt us past" data-id="a16" data-u="0.50" data-v="-0.52" title="Apollo 16 (example)"></span>
+          <span class="pt us past" data-id="a17" data-u="0.66" data-v="-0.16" title="Apollo 17 (example)"></span>
+          <span class="pt cn past" data-id="ce3" data-u="0.60" data-v="0.36" title="Chang'e-3 (example)"></span>
+          <span class="pt cn past" data-id="ce4" data-u="0.18" data-v="0.70" title="Chang'e-4 (example)"></span>
+          <span class="pt cn past" data-id="ce5" data-u="-0.46" data-v="0.55" title="Chang'e-5 (example)"></span>
+          <span class="pt cn past" data-id="ce6" data-u="-0.72" data-v="-0.22" title="Chang'e-6 (example)"></span>
         </div>
       </div>
     </div>
-    <div class="map-leg"><span><i style="background:var(--us)"></i>US example</span><span><i style="background:var(--cn)"></i>CN example</span><span><i style="background:var(--amb)"></i>Landmark example</span></div>
-    <p class="src">EXAMPLE markers only — replace with sourced landing sites. As of Unknown.</p>
+    <p class="src">Outer-ring past landings are schematic labels, not polar geography. Center is the pole.</p>
+    <div class="map-leg">
+      <span><i class="us"></i>US next</span>
+      <span><i class="cn"></i>CN next</span>
+      <span><i class="amb"></i>Landmark</span>
+      <span><i class="us hollow"></i>US past</span>
+      <span><i class="cn hollow"></i>CN past</span>
+    </div>
+    <p class="src">Markers are <span class="chip">EXAMPLE</span> glue points. Pinch or ctrl+scroll to zoom. Replace them with sourced sites.</p>
+
+    <article class="card site-card" id="site-card" aria-live="polite">
+      <h3 id="site-title">Site card</h3>
+      <p class="src" id="site-meta">Drill-down stub. Tap a site below. Facts stay Unknown until you import sources.</p>
+      <dl>
+        <dt>Side</dt><dd id="site-side">—</dd>
+        <dt>Kind</dt><dd id="site-kind">—</dd>
+        <dt>Status</dt><dd>Unknown <span class="tag tS">Unknown</span></dd>
+        <dt>Coords</dt><dd>Unknown · EXAMPLE glue only</dd>
+        <dt>Window</dt><dd>Unknown</dd>
+      </dl>
+    </article>
+
+    <details class="expander" open>
+      <summary>Next targets · EXAMPLE</summary>
+      <button type="button" class="site" data-id="shackleton" data-name="Shackleton rim" data-side="US" data-kind="Next target"><span class="lbl US">US</span> <b>Shackleton rim</b> <span class="chip">EXAMPLE</span> <span class="tag tS">Unknown</span></button>
+      <button type="button" class="site" data-id="gerlache" data-name="de Gerlache" data-side="US" data-kind="Next target"><span class="lbl US">US</span> <b>de Gerlache</b> <span class="chip">EXAMPLE</span> <span class="tag tS">Unknown</span></button>
+      <button type="button" class="site" data-id="haworth" data-name="Haworth" data-side="US" data-kind="Next target"><span class="lbl US">US</span> <b>Haworth</b> <span class="chip">EXAMPLE</span> <span class="tag tS">Unknown</span></button>
+      <button type="button" class="site" data-id="connecting" data-name="Connecting Ridge" data-side="US" data-kind="Next target"><span class="lbl US">US</span> <b>Connecting Ridge</b> <span class="chip">EXAMPLE</span> <span class="tag tS">Unknown</span></button>
+      <button type="button" class="site" data-id="nobile" data-name="Nobile rim" data-side="CN" data-kind="Next target"><span class="lbl CN">CN</span> <b>Nobile rim</b> <span class="chip">EXAMPLE</span> <span class="tag tS">Unknown</span></button>
+      <button type="button" class="site" data-id="malapert" data-name="Malapert" data-side="CN" data-kind="Next target"><span class="lbl CN">CN</span> <b>Malapert</b> <span class="chip">EXAMPLE</span> <span class="tag tS">Unknown</span></button>
+      <button type="button" class="site" data-id="amundsen" data-name="Amundsen rim" data-side="Landmark" data-kind="Next target"><span class="chip">EXAMPLE</span> <b>Amundsen rim</b> <span class="tag tS">Unknown</span></button>
+    </details>
+    <details class="expander">
+      <summary>Full details · past landings</summary>
+      <p class="src">Same note as the map: these names are schematic labels, not polar geography.</p>
+      <button type="button" class="site" data-id="a11" data-name="Apollo 11" data-side="US" data-kind="Past landing"><span class="lbl US">US</span> <b>Apollo 11</b> <span class="chip">EXAMPLE</span></button>
+      <button type="button" class="site" data-id="a12" data-name="Apollo 12" data-side="US" data-kind="Past landing"><span class="lbl US">US</span> <b>Apollo 12</b> <span class="chip">EXAMPLE</span></button>
+      <button type="button" class="site" data-id="a15" data-name="Apollo 15" data-side="US" data-kind="Past landing"><span class="lbl US">US</span> <b>Apollo 15</b> <span class="chip">EXAMPLE</span></button>
+      <button type="button" class="site" data-id="a16" data-name="Apollo 16" data-side="US" data-kind="Past landing"><span class="lbl US">US</span> <b>Apollo 16</b> <span class="chip">EXAMPLE</span></button>
+      <button type="button" class="site" data-id="a17" data-name="Apollo 17" data-side="US" data-kind="Past landing"><span class="lbl US">US</span> <b>Apollo 17</b> <span class="chip">EXAMPLE</span></button>
+      <button type="button" class="site" data-id="ce3" data-name="Chang'e-3" data-side="CN" data-kind="Past landing"><span class="lbl CN">CN</span> <b>Chang'e-3</b> <span class="chip">EXAMPLE</span></button>
+      <button type="button" class="site" data-id="ce4" data-name="Chang'e-4" data-side="CN" data-kind="Past landing"><span class="lbl CN">CN</span> <b>Chang'e-4</b> <span class="chip">EXAMPLE</span></button>
+      <button type="button" class="site" data-id="ce5" data-name="Chang'e-5" data-side="CN" data-kind="Past landing"><span class="lbl CN">CN</span> <b>Chang'e-5</b> <span class="chip">EXAMPLE</span></button>
+      <button type="button" class="site" data-id="ce6" data-name="Chang'e-6" data-side="CN" data-kind="Past landing"><span class="lbl CN">CN</span> <b>Chang'e-6</b> <span class="chip">EXAMPLE</span></button>
+    </details>
+  </section>
+
+  <div class="hpair" aria-label="Hero media">
+    <a class="hh2" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
+      <img src="https://www.nasa.gov/wp-content/uploads/2023/01/spacex_starship_hls_artemis_iii_2_crew_0_0.jpg" alt="Starship HLS artist concept on the lunar surface" loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link'">
+      <div class="hov2"><span class="lbl US">US</span> <b>Starship HLS</b><div class="hc">SpaceX / NASA · 🎨 RENDERING</div></div>
+    </a>
+    <a class="hh2" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
+      <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba660.jpeg" alt="China manned lunar lander landing and takeoff test" loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.querySelector('.hc').textContent='Image failed — open link'">
+      <div class="hov2"><span class="lbl CN">CN</span> <b>Lanyue lander test</b><div class="hc">CMSA via english.www.gov.cn</div></div>
+    </a>
+  </div>
+
+  <section class="card" aria-label="Official overview">
+    <h2>Official overview</h2>
+    <p class="src">Remote agency images only · <span class="ty rendering">🎨 RENDERING</span> is not a photo · as-of Unknown</p>
+    <div class="strip">
+      <a class="mi" href="https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/" target="_blank" rel="noopener">
+        <img src="https://www.nasa.gov/wp-content/uploads/2024/11/11-03-24-artemis-3-on-surface.jpg" alt="Starship HLS on the lunar surface, artist concept" loading="lazy">
+        <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>On surface</b><div class="src">SpaceX / NASA</div></div>
+      </a>
+      <a class="mi" href="https://www.blueorigin.com/blue-moon" target="_blank" rel="noopener">
+        <img src="https://d1o72l87sylvqg.cloudfront.net/redstone/gallery-bluemoon_nasa.jpg" alt="Blue Moon lander artist rendering" loading="lazy">
+        <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Blue Moon</b><div class="src">Blue Origin</div></div>
+      </a>
+      <a class="mi" href="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" target="_blank" rel="noopener">
+        <img src="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" alt="Artemis III concept of operations graphic" loading="lazy"
+          onerror="this.outerHTML='<div class=ph>Official CONOPS graphic</div>'">
+        <div class="mc"><span class="ty">📊 infographic</span> <b>Artemis III</b><div class="src">NASA</div></div>
+      </a>
+      <a class="mi" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
+        <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba662.jpeg" alt="Lanyue lander test hardware" loading="lazy">
+        <div class="mc"><span class="ty">📷 photo</span> <b>Lanyue test</b><div class="src">CMSA / gov.cn</div></div>
+      </a>
+    </div>
   </section>
 
   <section class="card" aria-label="Up next">
     <h2>Up next (examples)</h2>
     <ul class="tl-list">
-      <li><span class="lbl US">US</span> <b>EXAMPLE · Starship flight test</b> <span class="tag tS">Unknown</span><div class="src">Replace with next sourced flight · ○ plan → ● current</div></li>
-      <li><span class="lbl CN">CN</span> <b>EXAMPLE · LM-10 / Mengzhou ground test</b> <span class="tag tS">Unknown</span><div class="src">Replace with next sourced milestone</div></li>
+      <li><span class="lbl US">US</span> <b>EXAMPLE · Starship flight test</b> <span class="tag tS">Unknown</span><div class="src">Replace with the next sourced flight · ○ plan → ● current</div></li>
+      <li><span class="lbl CN">CN</span> <b>EXAMPLE · LM-10 / Mengzhou ground test</b> <span class="tag tS">Unknown</span><div class="src">Replace with the next sourced milestone</div></li>
     </ul>
   </section>
+
+  <details class="expander">
+    <summary>How it works</summary>
+    <ul>
+      <li><b>What this is:</b> a one-file phone dashboard for the U.S. (Artemis / commercial HLS) vs China (crewed lunar) race. Fork the scaffold, then replace Unknowns with sourced facts.</li>
+      <li><b>Home:</b> mission control, both ways to the Moon, the race dial, then the south-pole map. The dial is not the whole page.</li>
+      <li><b>Tabs:</b> Home · Architecture · Timeline · Path · Media · Claims · Glossary · Sources.</li>
+      <li><b>Map:</b> filled dots are next-target examples near the pole. Hollow dots on the outer ring are schematic past-landing labels, not polar geography. Tap a row for the site card. Dots are glued to the moon layer.</li>
+      <li><b>Status symbols:</b> ✓ done · ● on track / in progress · ◐ at risk · ✕ slipped · ? unknown · ○ not started.</li>
+      <li><b>Dates:</b> hollow ○ = original plan; solid ● = current expectation; the arrow is drift. A dashed slip pill is chrome, not a sourced fact, unless a tag says Official.</li>
+      <li><b>Pictures:</b> tap a thumbnail to open the official page. <span class="ty rendering">🎨 RENDERING</span> means an artist concept, not a photo.</li>
+      <li><b>Open the file:</b> download the HTML from chat and use <b>Open with Chrome</b>. If a copy is later stored in Drive, that preview breaks the map and the tabs — download and open in Chrome anyway.</li>
+    </ul>
+  </details>
+  <details class="expander">
+    <summary>Full details · how to read this seed</summary>
+    <ul>
+      <li>Architecture panels (Steps, What’s next, Pieces to finish, Compare) are shells. Leave them Unknown until a source says otherwise.</li>
+      <li>Demo CONOPS and crew CONOPS stay in separate bands. Do not copy a tanker count into this file.</li>
+      <li>The Claims tab ships empty on purpose. Fill it after import. Do not paste private notes.</li>
+    </ul>
+  </details>
 </section>
 
 <!-- ARCHITECTURE -->
 <section class="view" id="v-arch" aria-label="Architecture">
-  <h2 style="margin:0 0 10px;font-size:18px">Architecture</h2>
+  <h2>Architecture</h2>
+  <p class="src">Per-path drill-downs are shells. <span class="chip">EXAMPLE</span> names, Unknown facts.</p>
   <div class="card bnd US">
     <h2><span class="lbl US">US</span> Artemis paths</h2>
-    <p class="side-note">SLS is not the only U.S. launch path — Starship + tankers and New Glenn + Blue Moon matter.</p>
+    <p class="side-note">SLS is not the only U.S. launch path. Starship and New Glenn + Blue Moon are separate panels.</p>
     <div class="seq">
       <a class="tile" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
         <div class="tl">1. Starship HLS</div>
         <img src="https://www.nasa.gov/wp-content/uploads/2024/11/11-03-24-artemis-3-on-surface.jpg" alt="Starship HLS on lunar surface artist concept" loading="lazy"
           onerror="this.outerHTML='<div class=noimg>Official image · fill from ASSETS.md</div>'">
-        <div class="tc">Artemis III / IV lander <span class="ty rendering">🎨 RENDERING</span></div>
-        <div class="cr">SpaceX / NASA ↗</div>
+        <div class="tc">Artemis lander <span class="ty rendering">🎨 RENDERING</span></div>
+        <div class="cr">SpaceX / NASA</div>
       </a>
       <a class="tile" href="https://www.blueorigin.com/blue-moon" target="_blank" rel="noopener">
-        <div class="tl">2. Blue Moon</div>
+        <div class="tl">2. Blue Origin</div>
         <img src="https://d1o72l87sylvqg.cloudfront.net/redstone/gallery-bluemoon_nasa.jpg" alt="Blue Moon lander artist rendering" loading="lazy"
           onerror="this.outerHTML='<div class=noimg>Official image · fill from ASSETS.md</div>'">
-        <div class="tc">Artemis V path <span class="ty rendering">🎨 RENDERING</span></div>
-        <div class="cr">Blue Origin ↗</div>
+        <div class="tc">Blue Moon <span class="ty rendering">🎨 RENDERING</span></div>
+        <div class="cr">Blue Origin</div>
       </a>
       <a class="tile" href="https://www.nasa.gov/mission/artemis-iii/" target="_blank" rel="noopener">
         <div class="tl">3. SLS + Orion</div>
         <div class="noimg">Official SLS/Orion graphic<br>fill from ASSETS.md</div>
-        <div class="tc">Crew transport to lunar orbit</div>
-        <div class="cr">NASA · page link ↗</div>
+        <div class="tc">Crew transport</div>
+        <div class="cr">NASA · page link</div>
+      </a>
+      <a class="tile" href="https://www.blueorigin.com/new-glenn" target="_blank" rel="noopener">
+        <div class="tl">4. New Glenn</div>
+        <div class="noimg">Official New Glenn graphic<br>fill from ASSETS.md</div>
+        <div class="tc">Launcher path</div>
+        <div class="cr">Blue Origin · page link</div>
       </a>
     </div>
   </div>
+
+  <details class="expander" id="drill-starship">
+    <summary>Starship HLS · full path</summary>
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li><span class="dot"></span><div><b>S1 · Flight-test campaign</b> <span class="st">? unknown</span> <span class="chip">EXAMPLE</span><div class="src">Named shell · date Unknown</div></div></li>
+      <li><span class="dot"></span><div><b>S2 · Propellant transfer demo</b> <span class="st">? unknown</span> <span class="chip">EXAMPLE</span><div class="src">Count stays Unknown. Do not paste a live number.</div></div></li>
+      <li><span class="dot"></span><div><b>S3 · Uncrewed lunar demo</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span></div></li>
+      <li><span class="dot"></span><div><b>S4 · Crewed landing</b> <span class="st">? unknown</span> <span class="tag tS">Unknown</span></div></li>
+    </ol>
+    <h3>What’s next</h3>
+    <p>Unknown <span class="tag tS">Unknown</span> <span class="chip">EXAMPLE</span></p>
+    <h3>Pieces to finish</h3>
+    <ul>
+      <li>Depot campaign — number Unknown</li>
+      <li>Lander demo — Unknown</li>
+      <li>Crew rendezvous — Unknown</li>
+    </ul>
+    <h3>Compare stub</h3>
+    <p class="src">Fill after import. This seed does not rank the paths.</p>
+    <div class="cmp"><div><span class="lbl US">US</span> <b>Starship HLS</b><span class="src">Unknown</span></div><div><span class="lbl CN">CN</span> <b>Lanyue</b><span class="src">Unknown</span></div></div>
+  </details>
+
+  <details class="expander" id="drill-bluemoon">
+    <summary>Blue Origin · Blue Moon · full path</summary>
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li><span class="dot"></span><div><b>B1 · Lander design</b> <span class="st">? unknown</span> <span class="chip">EXAMPLE</span></div></li>
+      <li><span class="dot"></span><div><b>B2 · Uncrewed demo</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span></div></li>
+      <li><span class="dot"></span><div><b>B3 · Crewed path</b> <span class="st">? unknown</span> <span class="tag tS">Unknown</span></div></li>
+    </ol>
+    <h3>What’s next</h3>
+    <p>Unknown <span class="tag tS">Unknown</span></p>
+    <h3>Pieces to finish</h3>
+    <ul>
+      <li>New Glenn flights — Unknown</li>
+      <li>Lander integration — Unknown</li>
+      <li>Mission assignment — Unknown</li>
+    </ul>
+    <h3>Compare stub</h3>
+    <div class="cmp"><div><b>Blue Moon</b><span class="src">Unknown</span></div><div><b>Starship HLS</b><span class="src">Unknown</span></div></div>
+  </details>
+
+  <details class="expander" id="drill-sls">
+    <summary>SLS + Orion · full path</summary>
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li><span class="dot"></span><div><b>L1 · SLS stack</b> <span class="st">? unknown</span> <span class="chip">EXAMPLE</span></div></li>
+      <li><span class="dot"></span><div><b>L2 · Orion launch</b> <span class="st">? unknown</span> <span class="chip">EXAMPLE</span></div></li>
+      <li><span class="dot"></span><div><b>L3 · Lunar orbit</b> <span class="st">? unknown</span> <span class="tag tS">Unknown</span></div></li>
+      <li><span class="dot"></span><div><b>L4 · Meet the lander</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span></div></li>
+    </ol>
+    <h3>What’s next</h3>
+    <p>Unknown <span class="tag tS">Unknown</span></p>
+    <h3>Pieces to finish</h3>
+    <ul>
+      <li>Launch cadence — Unknown</li>
+      <li>Docking with HLS — Unknown</li>
+    </ul>
+    <h3>Compare stub</h3>
+    <div class="cmp"><div><b>SLS + Orion</b><span class="src">Crew transport · Unknown</span></div><div><b>New Glenn</b><span class="src">Launcher · Unknown</span></div></div>
+  </details>
+
+  <details class="expander" id="drill-glenn">
+    <summary>New Glenn · full path</summary>
+    <p class="src">Page: <a href="https://www.blueorigin.com/new-glenn" target="_blank" rel="noopener">blueorigin.com/new-glenn</a>. No official still in this seed.</p>
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li><span class="dot"></span><div><b>G1 · Launcher flights</b> <span class="st">? unknown</span> <span class="chip">EXAMPLE</span></div></li>
+      <li><span class="dot"></span><div><b>G2 · Lunar trajectory</b> <span class="st">? unknown</span> <span class="tag tS">Unknown</span></div></li>
+      <li><span class="dot"></span><div><b>G3 · Blue Moon integration</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span></div></li>
+    </ol>
+    <h3>What’s next</h3>
+    <p>Unknown <span class="tag tS">Unknown</span></p>
+    <h3>Pieces to finish</h3>
+    <ul>
+      <li>Cadence — Unknown</li>
+      <li>Payload fit — Unknown</li>
+    </ul>
+    <h3>Compare stub</h3>
+    <div class="cmp"><div><b>New Glenn</b><span class="src">Unknown</span></div><div><b>SLS</b><span class="src">Unknown</span></div></div>
+  </details>
+
   <div class="card bnd CN">
     <h2><span class="lbl CN">CN</span> Crewed lunar path</h2>
-    <p class="side-note">Long March-10 · Mengzhou crew craft · Lanyue lander — before-2030 goal is Official; exact month Unknown until sourced.</p>
+    <p class="side-note">Long March-10 · Mengzhou · Lanyue. The before-2030 goal is the public line already in this scaffold. The month is Unknown.</p>
     <div class="seq">
       <a class="tile" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
         <div class="tl">1. Lanyue</div>
         <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba662.jpeg" alt="Lanyue lander test hardware" loading="lazy"
           onerror="this.outerHTML='<div class=noimg>Official image · fill from ASSETS.md</div>'">
-        <div class="tc">Crewed lunar lander (test)</div>
-        <div class="cr">CMSA via english.www.gov.cn ↗</div>
+        <div class="tc">Lander test</div>
+        <div class="cr">CMSA via english.www.gov.cn</div>
       </a>
       <a class="tile" href="https://www.cmse.gov.cn/" target="_blank" rel="noopener">
         <div class="tl">2. Mengzhou</div>
         <div class="noimg">Official Mengzhou graphic<br>fill from ASSETS.md</div>
-        <div class="tc">Next-gen crew spacecraft</div>
-        <div class="cr">CMSA · cmse.gov.cn ↗</div>
+        <div class="tc">Crew spacecraft</div>
+        <div class="cr">CMSA · cmse.gov.cn</div>
       </a>
       <a class="tile" href="https://www.cnsa.gov.cn/" target="_blank" rel="noopener">
         <div class="tl">3. LM-10</div>
         <div class="noimg">Official LM-10 graphic<br>fill from ASSETS.md</div>
-        <div class="tc">Heavy lift for lunar crew path</div>
-        <div class="cr">CNSA · cnsa.gov.cn ↗</div>
+        <div class="tc">Heavy lift</div>
+        <div class="cr">CNSA · cnsa.gov.cn</div>
       </a>
     </div>
   </div>
+
+  <details class="expander" id="drill-china">
+    <summary>China · nested paths</summary>
+    <p class="src">Three vehicle shells. Open each one for Steps, What’s next, Pieces to finish, and a Compare stub.</p>
+
+    <details class="expander" id="drill-lanyue">
+      <summary>Lanyue · full path</summary>
+      <h3>Steps</h3>
+      <ol class="steps">
+        <li><span class="dot done"></span><div><b>Y1 · Landing / takeoff ground test</b> <span class="st">✓ done</span> <span class="tag tO">Official</span><div class="src">english.www.gov.cn · Aug 2025 report</div></div></li>
+        <li><span class="dot"></span><div><b>Y2 · Next flight test</b> <span class="st">? unknown</span> <span class="chip">EXAMPLE</span></div></li>
+        <li><span class="dot"></span><div><b>Y3 · Crewed landing</b> <span class="st">? unknown</span> <span class="tag tS">Unknown</span></div></li>
+      </ol>
+      <h3>What’s next</h3>
+      <p>Unknown <span class="tag tS">Unknown</span></p>
+      <h3>Pieces to finish</h3>
+      <ul>
+        <li>Uncrewed landing demo — Unknown</li>
+        <li>Crew vehicle mate — Unknown</li>
+      </ul>
+      <h3>Compare stub</h3>
+      <div class="cmp"><div><span class="lbl CN">CN</span> <b>Lanyue</b><span class="src">Unknown</span></div><div><span class="lbl US">US</span> <b>Starship HLS</b><span class="src">Unknown</span></div></div>
+    </details>
+
+    <details class="expander" id="drill-mengzhou">
+      <summary>Mengzhou · full path</summary>
+      <h3>Steps</h3>
+      <ol class="steps">
+        <li><span class="dot"></span><div><b>M1 · Crew spacecraft tests</b> <span class="st">? unknown</span> <span class="chip">EXAMPLE</span></div></li>
+        <li><span class="dot"></span><div><b>M2 · Lunar trajectory</b> <span class="st">? unknown</span> <span class="tag tS">Unknown</span></div></li>
+        <li><span class="dot"></span><div><b>M3 · Lander rendezvous</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span></div></li>
+      </ol>
+      <h3>What’s next</h3>
+      <p>Unknown <span class="tag tS">Unknown</span></p>
+      <h3>Pieces to finish</h3>
+      <ul>
+        <li>Official public still — missing, keep the page link</li>
+        <li>Flight assignment — Unknown</li>
+      </ul>
+      <h3>Compare stub</h3>
+      <div class="cmp"><div><b>Mengzhou</b><span class="src">Unknown</span></div><div><b>Orion</b><span class="src">Unknown</span></div></div>
+    </details>
+
+    <details class="expander" id="drill-lm10">
+      <summary>LM-10 · full path</summary>
+      <h3>Steps</h3>
+      <ol class="steps">
+        <li><span class="dot"></span><div><b>C1 · Heavy-lift tests</b> <span class="st">? unknown</span> <span class="chip">EXAMPLE</span></div></li>
+        <li><span class="dot"></span><div><b>C2 · Crew-path flight</b> <span class="st">? unknown</span> <span class="tag tS">Unknown</span></div></li>
+      </ol>
+      <h3>What’s next</h3>
+      <p>Unknown <span class="tag tS">Unknown</span></p>
+      <h3>Pieces to finish</h3>
+      <ul>
+        <li>Official public still — missing, keep cnsa.gov.cn</li>
+        <li>Pad and cadence — Unknown</li>
+      </ul>
+      <h3>Compare stub</h3>
+      <div class="cmp"><div><b>LM-10</b><span class="src">Unknown</span></div><div><b>SLS</b><span class="src">Unknown</span></div></div>
+    </details>
+  </details>
+
+  <details class="expander">
+    <summary>Full details · how to finish a path</summary>
+    <ul>
+      <li>Keep each vehicle in its own panel. Do not fold New Glenn into SLS, or a demo into the crew path.</li>
+      <li>Replace Compare stubs only with sourced differences. The Claims tab is where those sentences go, and it starts empty.</li>
+      <li><a href="#claims" data-go="claims">Open the claims log</a></li>
+    </ul>
+  </details>
 </section>
 
 <!-- TIMELINE -->
 <section class="view" id="v-timeline" aria-label="Timeline">
-  <h2 style="margin:0 0 10px;font-size:18px">Timeline</h2>
+  <h2>Timeline</h2>
   <div class="card">
-    <p class="src">○ hollow = original plan (example) · ● solid = current · status + credibility chips required. EXAMPLE rows — replace before calling this a live HUD.</p>
+    <p class="src">○ hollow = original plan · ● solid = current · dashed pill = slip chrome. Rows marked EXAMPLE are not sourced dates.</p>
     <ul class="tl-list">
       <li>
-        <span class="lbl US">US</span> <b>Artemis III crewed landing</b>
-        <div class="pair"><span class="pm" title="original"></span><span>EXAMPLE NET 2027</span><span class="pl"></span><span class="pm s" title="current"></span><b>Unknown</b> <span class="tag tS">Unknown</span></div>
-        <div><span class="st">? unknown</span> · slip: Unknown <span class="est">Estimate</span></div>
-        <div class="src">Fill from NASA / HLS briefings</div>
+        <span class="lbl US">US</span> <b>Artemis III crewed landing</b> <span class="chip">EXAMPLE</span>
+        <div class="pair"><span class="pm" title="original plan"></span><span>○ EXAMPLE 2027</span><span class="pl"></span><span class="slip">slip · EXAMPLE</span><span class="pm s" title="current"></span><b>● Unknown</b> <span class="tag tS">Unknown</span></div>
+        <div><span class="st">? unknown</span> · drift chrome only · not a sourced slip</div>
       </li>
       <li>
-        <span class="lbl US">US</span> <b>Starship uncrewed lunar demo</b>
-        <div class="pair"><span class="pm"></span><span>EXAMPLE TBD</span><span class="pl"></span><span class="pm q"></span><b>Unknown</b> <span class="tag tS">Unknown</span></div>
-        <div><span class="st">○ not started</span></div>
-        <div class="src">Prerequisite for crewed HLS use</div>
+        <span class="lbl US">US</span> <b>Starship uncrewed lunar demo</b> <span class="chip">EXAMPLE</span>
+        <div class="pair"><span class="pm"></span><span>○ EXAMPLE 2026</span><span class="pl"></span><span class="slip">slip · EXAMPLE</span><span class="pm q"></span><b>● EXAMPLE 2028</b> <span class="tag tS">Unknown</span></div>
+        <div><span class="st">○ not started</span> · both ends are placeholders</div>
+      </li>
+      <li>
+        <span class="lbl US">US</span> <b>Blue Moon uncrewed demo</b> <span class="chip">EXAMPLE</span>
+        <div class="pair"><span class="pm"></span><span>○ EXAMPLE TBD</span><span class="pl"></span><span class="slip">slip · EXAMPLE</span><span class="pm q"></span><b>● Unknown</b> <span class="tag tS">Unknown</span></div>
+        <div><span class="st">? unknown</span></div>
+      </li>
+      <li>
+        <span class="lbl US">US</span> <b>SLS / Orion crew launch</b> <span class="chip">EXAMPLE</span>
+        <div class="pair"><span class="pm"></span><span>○ EXAMPLE 2026</span><span class="pl"></span><span class="slip">slip · EXAMPLE</span><span class="pm s"></span><b>● EXAMPLE 2027</b> <span class="tag tS">Unknown</span></div>
+        <div><span class="st">? unknown</span> · ○ → ● shows the drift slot</div>
       </li>
       <li>
         <span class="lbl CN">CN</span> <b>Crewed lunar landing goal</b>
-        <div class="pair"><span class="pm"></span><span>before 2030</span><span class="pl"></span><span class="pm s"></span><b>before 2030</b> <span class="tag tO">Official</span></div>
-        <div><span class="st">● on track</span> · deadline-only bar may later fade to a month estimate</div>
-        <div class="src">CMSA / CNSA public statements · EXAMPLE confidence</div>
+        <div class="pair"><span class="pm"></span><span>○ before 2030</span><span class="pl"></span><span class="pm s"></span><b>● before 2030</b> <span class="tag tO">Official</span></div>
+        <div><span class="st">● on track</span> · no slip pill · month still Unknown</div>
+        <div class="src">Public goal line already in this scaffold · EXAMPLE confidence on the status chip</div>
       </li>
       <li>
         <span class="lbl CN">CN</span> <b>Lanyue landing/takeoff ground test</b>
-        <div class="pair"><span class="pm s"></span><span>Aug 2025</span><span class="pl"></span><span class="pm s"></span><b>Aug 2025</b> <span class="tag tO">Official</span></div>
-        <div><span class="st">✓ done</span></div>
+        <div class="pair"><span class="pm s"></span><span>○ Aug 2025</span><span class="pl"></span><span class="pm s"></span><b>● Aug 2025</b> <span class="tag tO">Official</span></div>
+        <div><span class="st">✓ done</span> · no drift in this seed</div>
         <div class="src">english.www.gov.cn · 7 Aug 2025 report</div>
+      </li>
+      <li>
+        <span class="lbl CN">CN</span> <b>South-pole robotic follow-on</b> <span class="chip">EXAMPLE</span>
+        <div class="pair"><span class="pm q"></span><span>○ Unknown</span><span class="pl"></span><span class="slip">slip · EXAMPLE</span><span class="pm q"></span><b>● Unknown</b> <span class="tag tS">Unknown</span></div>
+        <div><span class="st">? unknown</span> · name the mission only after a source does</div>
       </li>
     </ul>
   </div>
+  <details class="expander">
+    <summary>Full details · reading drift</summary>
+    <ul>
+      <li>Hollow circle, arrow, solid circle. That is the ○ → ● chrome.</li>
+      <li>A slip pill on an EXAMPLE row is a slot for a later sourced slip. It is not itself a fact.</li>
+      <li>Official rows in this seed are only the before-2030 goal line and the Aug 2025 Lanyue ground test. They show no slip pill.</li>
+    </ul>
+  </details>
 </section>
 
 <!-- PATH / CONOPS / REFUEL -->
 <section class="view" id="v-path" aria-label="Critical path">
-  <h2 style="margin:0 0 10px;font-size:18px">Critical path · Starship CONOPS</h2>
+  <h2>Critical path</h2>
   <div class="card">
-    <p class="src"><b>Never blend</b> demo-minimum tanker counts with crew transport / land / return CONOPS. Do not convert tanker counts into “months at today’s flight rate.”</p>
+    <p class="src"><b>Keep these bands apart.</b> Demo-minimum planning is not the crew transport / land / return path. Do not drop a live tanker count into either band.</p>
     <div class="band">
       <div class="label">Demo minimum CONOPS</div>
-      <div class="val">Unknown tankers <span class="tag tS">Unknown</span> <span class="est">Assumption</span></div>
-      <p class="src">Early uncrewed-demo planning often cited ~6–8+ (CONOPS-dependent) — label assumptions separately; not a NASA commitment.</p>
-      <div class="bar demo"><i style="width:18%"></i></div>
+      <div class="val">Unknown tankers <span class="tag tS">Unknown</span> <span class="est">Assumption</span> <span class="chip">EXAMPLE</span></div>
+      <p class="src">Shell only. The number is Unknown until a source you choose says otherwise. No progress bar until that count is sourced.</p>
     </div>
     <div class="band">
       <div class="label">Crew transport / land / return CONOPS</div>
-      <div class="val">Unknown tankers <span class="tag tS">Unknown</span></div>
-      <p class="src">Higher ASAP-style counts are for later/crewed-class stacks — <b>not</b> first-demo minima.</p>
-      <div class="bar crew"><i style="width:8%"></i></div>
+      <div class="val">Unknown tankers <span class="tag tS">Unknown</span> <span class="chip">EXAMPLE</span></div>
+      <p class="src">Separate from the demo band. Not a first-demo minimum, and not a published count. No progress bar until that count is sourced.</p>
     </div>
   </div>
-  <div class="card" aria-label="Refuel tracker">
-    <h2>Refuel tracker</h2>
+
+  <div class="card" aria-label="Demo refuel tracker">
+    <h2>Refuel tracker · demo</h2>
     <div class="refuel">
       <div class="n-of-m">0<small>of 6 · EXAMPLE</small></div>
       <div>
         <div><b>Named steps</b> · next: R1 Depot deploy <span class="est">EXAMPLE</span></div>
-        <div class="src">EXAMPLE N of M — replace M and step list from sourced CONOPS; dial stays Too early until demos warrant otherwise</div>
+        <div class="src">EXAMPLE N of M. Replace M from sourced CONOPS. The dial stays Too early.</div>
       </div>
     </div>
     <ol class="steps">
-      <li><span class="dot next" aria-hidden="true"></span><div><b>R1 · Depot deploy</b> <span class="st">○ not started</span><div class="src">EXAMPLE step name — replace with sourced CONOPS</div></div></li>
-      <li><span class="dot" aria-hidden="true"></span><div><b>R2 · Tanker flight 1</b> <span class="st">○ not started</span></div></li>
-      <li><span class="dot" aria-hidden="true"></span><div><b>R3 · Propellant transfer demo</b> <span class="st">○ not started</span></div></li>
-      <li><span class="dot" aria-hidden="true"></span><div><b>R4 · Tanker campaign complete (demo min)</b> <span class="st">○ not started</span></div></li>
-      <li><span class="dot" aria-hidden="true"></span><div><b>R5 · HLS TLI / lunar arrival</b> <span class="st">○ not started</span></div></li>
-      <li><span class="dot" aria-hidden="true"></span><div><b>R6 · Uncrewed landing demo</b> <span class="st">○ not started</span></div></li>
+      <li><span class="dot next" aria-hidden="true"></span><div><b>R1 · Depot deploy</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R2 · Tanker flight</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown · count Unknown</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R3 · Propellant transfer demo</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R4 · Demo-minimum campaign</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Do not reuse the crew band’s steps here</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R5 · HLS lunar arrival</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>R6 · Uncrewed landing demo</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
     </ol>
   </div>
+
+  <div class="card" aria-label="Crew path steps">
+    <h2>Crew path · named steps</h2>
+    <div class="refuel">
+      <div class="n-of-m">—<small>of M · EXAMPLE</small></div>
+      <div>
+        <div><b>Crew N of M</b> · M is Unknown <span class="tag tS">Unknown</span></div>
+        <div class="src">Not the demo “0 of 6”. This band is transport, land, and return.</div>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><span class="dot" aria-hidden="true"></span><div><b>K1 · Crew vehicle at pad</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>K2 · Crew launch</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>K3 · Transfer to lander</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>K4 · Lunar landing</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>K5 · Surface stay</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
+      <li><span class="dot" aria-hidden="true"></span><div><b>K6 · Ascent and return</b> <span class="st">○ not started</span> <span class="chip">EXAMPLE</span><div class="src">Gate Unknown</div></div></li>
+    </ol>
+  </div>
+
+  <details class="expander">
+    <summary>How it works · CONOPS bands</summary>
+    <ul>
+      <li>Demo minimum and crew transport are different operations. A step that belongs on one list does not get copied onto the other.</li>
+      <li>The demo counter is an EXAMPLE “0 of 6”. The crew counter leaves M blank on purpose.</li>
+    </ul>
+  </details>
+  <details class="expander">
+    <summary>Full details · finishing the path</summary>
+    <ul>
+      <li>Replace step names from a sourced concept of operations.</li>
+      <li>If a source states a count, tag it Official or Credible and date it. Until then leave Unknown.</li>
+      <li>Do not convert a count into a schedule.</li>
+    </ul>
+  </details>
 </section>
 
 <!-- MEDIA -->
 <section class="view" id="v-media" aria-label="Media gallery">
-  <h2 style="margin:0 0 8px;font-size:18px">Media gallery</h2>
-  <p class="src">Official public URLs only · credit + as-of on every card · <span class="ty rendering">🎨 RENDERING</span> = artist concept. As of Unknown.</p>
+  <h2>Media</h2>
+  <p class="src">Official public URLs only · credit on every card · <span class="ty rendering">🎨 RENDERING</span> means an artist concept. As of Unknown.</p>
+  <div class="strip" aria-label="Official overview strip">
+    <a class="mi" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
+      <img src="https://www.nasa.gov/wp-content/uploads/2023/01/spacex_starship_hls_artemis_iii_2_crew_0_0.jpg" alt="Starship HLS concept" loading="lazy">
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Starship HLS</b></div>
+    </a>
+    <a class="mi" href="https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/" target="_blank" rel="noopener">
+      <img src="https://www.nasa.gov/wp-content/uploads/2024/11/11-03-24-artemis-3-on-surface.jpg" alt="Starship on the surface concept" loading="lazy">
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Surface</b></div>
+    </a>
+    <a class="mi" href="https://www.blueorigin.com/blue-moon" target="_blank" rel="noopener">
+      <img src="https://d1o72l87sylvqg.cloudfront.net/redstone/gallery-bluemoon_nasa.jpg" alt="Blue Moon concept" loading="lazy">
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Blue Moon</b></div>
+    </a>
+    <a class="mi" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
+      <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba660.jpeg" alt="Lanyue test photo" loading="lazy">
+      <div class="mc"><span class="ty">📷 photo</span> <b>Lanyue</b></div>
+    </a>
+  </div>
   <div class="mgrid">
     <a class="mi" href="https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/" target="_blank" rel="noopener">
       <img src="https://www.nasa.gov/wp-content/uploads/2023/01/spacex_starship_hls_artemis_iii_2_crew_0_0.jpg" alt="Starship HLS concept" loading="lazy">
@@ -359,7 +751,7 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:13px;color:#6b7c96;text-ali
     </a>
     <a class="mi" href="https://www.blueorigin.com/gallery/by/blue-moon" target="_blank" rel="noopener">
       <img src="https://d1o72l87sylvqg.cloudfront.net/redstone/gallery-bluemoon_nasa.jpg" alt="Blue Moon concept" loading="lazy">
-      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Blue Moon</b><div>Crew lander concept</div><div class="src">Blue Origin</div></div>
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Blue Moon</b><div>Lander concept</div><div class="src">Blue Origin</div></div>
     </a>
     <a class="mi" href="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" target="_blank" rel="noopener">
       <img src="https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg" alt="Artemis III CONOPS graphic" loading="lazy"
@@ -370,52 +762,110 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:13px;color:#6b7c96;text-ali
       <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba660.jpeg" alt="Lanyue test" loading="lazy">
       <div class="mc"><span class="ty">📷 photo</span> <b>Lanyue test</b><div>Landing / takeoff trial</div><div class="src">CMSA / gov.cn · Aug 2025</div></div>
     </a>
+    <a class="mi" href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">
+      <img src="https://english.www.gov.cn/images/202508/07/68949af3c6d0868f1eaba662.jpeg" alt="Alternate view of the Lanyue test" loading="lazy">
+      <div class="mc"><span class="ty">📷 photo</span> <b>Lanyue alt</b><div>Second official still</div><div class="src">CMSA / gov.cn · Aug 2025</div></div>
+    </a>
     <a class="mi" href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">
-      <div class="ph">Slot · Super Heavy / tanker<br>fill from ASSETS.md</div>
+      <div class="ph">Slot · tanker / depot<br>fill from ASSETS.md</div>
       <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Tanker / depot</b><div class="src">Placeholder · official URL TBD</div></div>
+    </a>
+    <a class="mi" href="https://www.nasa.gov/mission/artemis-iii/" target="_blank" rel="noopener">
+      <div class="ph">Slot · SLS + Orion<br>fill from ASSETS.md</div>
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>SLS + Orion</b><div class="src">NASA · page link</div></div>
+    </a>
+    <a class="mi" href="https://www.blueorigin.com/new-glenn" target="_blank" rel="noopener">
+      <div class="ph">Slot · New Glenn<br>fill from ASSETS.md</div>
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>New Glenn</b><div class="src">Blue Origin · page link</div></div>
     </a>
     <a class="mi" href="https://www.cmse.gov.cn/" target="_blank" rel="noopener">
       <div class="ph">Slot · Mengzhou<br>fill from ASSETS.md</div>
       <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>Mengzhou</b><div class="src">Placeholder · CMSA</div></div>
     </a>
+    <a class="mi" href="https://www.cnsa.gov.cn/" target="_blank" rel="noopener">
+      <div class="ph">Slot · LM-10<br>fill from ASSETS.md</div>
+      <div class="mc"><span class="ty rendering">🎨 RENDERING</span> <b>LM-10</b><div class="src">Placeholder · CNSA</div></div>
+    </a>
   </div>
+  <details class="expander">
+    <summary>Full details · media rules</summary>
+    <ul>
+      <li>Every picture needs a caption, a credit, an outbound page, an as-of date, and a type badge.</li>
+      <li>If a CDN fails, keep the page link and the dashed placeholder. Do not swap in a private file.</li>
+    </ul>
+  </details>
+</section>
+
+<!-- CLAIMS -->
+<section class="view" id="v-claims" aria-label="Claims log">
+  <h2>Claims log</h2>
+  <div class="card empty">
+    <h2>Fill after import</h2>
+    <p>This public scaffold has no claims. After you fork it, log sourced statements here. Zero rows ship in the seed.</p>
+    <p class="src">Empty by design · do not paste private notes into this tab.</p>
+  </div>
+  <details class="expander">
+    <summary>How a claim row works</summary>
+    <ul>
+      <li>Future row: statement · side · credibility tag · source link · as-of date.</li>
+      <li>Tags: <span class="tag tO">Official</span> <span class="tag tC">Credible</span> <span class="tag tU">Unconfirmed</span> <span class="tag tS">Unknown</span></li>
+      <li>If you do not yet have a source, leave the row out. Unknown belongs on the other tabs until you can cite it.</li>
+    </ul>
+  </details>
+  <details class="expander">
+    <summary>Full details · what does not belong here</summary>
+    <ul>
+      <li>No private files, no unpublished counts, no notes from another tracker.</li>
+      <li>Architecture Compare stubs point here when a sourced difference exists. Until then they stay Unknown.</li>
+    </ul>
+  </details>
 </section>
 
 <!-- GLOSSARY -->
 <section class="view" id="v-glossary" aria-label="Glossary">
-  <h2 style="margin:0 0 10px;font-size:18px">Glossary</h2>
+  <h2>Glossary</h2>
   <div class="card gloss">
     <dl>
-      <dt>HLS</dt><dd>Human Landing System — vehicle that takes crew from lunar orbit to the surface and back.</dd>
-      <dt>CONOPS</dt><dd>Concept of operations — how many flights / which architecture for a given mission class.</dd>
-      <dt>Starship HLS</dt><dd>SpaceX lunar lander variant of Starship for Artemis III / IV.</dd>
-      <dt>Blue Moon</dt><dd>Blue Origin lunar lander family; crewed variant for Artemis V path.</dd>
-      <dt>SLS</dt><dd>Space Launch System — NASA heavy-lift rocket that launches Orion.</dd>
-      <dt>Orion</dt><dd>NASA crew capsule for Artemis Earth ↔ lunar orbit.</dd>
-      <dt>LM-10</dt><dd>Long March-10 — China’s heavy-lift rocket for the crewed lunar path.</dd>
-      <dt>Mengzhou</dt><dd>China’s next-generation crewed spacecraft for lunar (and LEO) missions.</dd>
-      <dt>Lanyue</dt><dd>China’s crewed lunar lander (“embracing the moon”).</dd>
-      <dt>ILRS</dt><dd>International Lunar Research Station — China/Russia-led lunar base concept.</dd>
-      <dt>NET</dt><dd>No earlier than — a date floor, not a commitment to fly that month.</dd>
-      <dt>Depot / tanker</dt><dd>Orbital propellant storage and the flights that fill it before an HLS departure.</dd>
-      <dt>RENDERING</dt><dd>Artist’s concept — not a photograph of flown hardware.</dd>
+      <dt>Artemis</dt><dd>NASA’s crewed lunar campaign. On Home it is the U.S. path next to commercial HLS.</dd>
+      <dt>HLS</dt><dd>Human Landing System. The vehicle that takes crew from lunar orbit to the surface and back.</dd>
+      <dt>CLPS</dt><dd>Commercial Lunar Payload Services. NASA program for commercial cargo deliveries to the Moon. Not a crewed landing path in this seed.</dd>
+      <dt>CONOPS</dt><dd>Concept of operations. Which flights and which architecture a given mission class uses. Demo and crew stay separate.</dd>
+      <dt>Starship HLS</dt><dd>SpaceX lunar lander variant for the Artemis crew-landing path.</dd>
+      <dt>Blue Moon</dt><dd>Blue Origin lunar lander. Crewed variant is a separate path from Starship HLS.</dd>
+      <dt>New Glenn</dt><dd>Blue Origin heavy launcher. Its own panel in this seed, not a synonym for SLS.</dd>
+      <dt>SLS</dt><dd>Space Launch System. NASA heavy-lift rocket that launches Orion.</dd>
+      <dt>Orion</dt><dd>NASA crew capsule for Artemis, Earth to lunar orbit.</dd>
+      <dt>CMSA</dt><dd>China Manned Space Agency. Crewed spaceflight program (cmse.gov.cn). Lanyue and Mengzhou are credited here.</dd>
+      <dt>CNSA</dt><dd>China National Space Administration. National space agency (cnsa.gov.cn).</dd>
+      <dt>LM-10</dt><dd>Long March-10. China’s heavy-lift rocket for the crewed lunar path.</dd>
+      <dt>Mengzhou</dt><dd>China’s next crewed spacecraft for lunar missions.</dd>
+      <dt>Lanyue</dt><dd>China’s crewed lunar lander.</dd>
+      <dt>ILRS</dt><dd>International Lunar Research Station. China/Russia-led lunar base concept.</dd>
+      <dt>NET</dt><dd>No earlier than. A date floor, not a promise to fly that month.</dd>
+      <dt>Depot / tanker</dt><dd>Orbital propellant storage, and the flights that fill it before a lander departs. Counts stay Unknown in this seed.</dd>
+      <dt>RENDERING</dt><dd>An artist’s concept, not a photograph of flown hardware.</dd>
+      <dt>EXAMPLE</dt><dd>A placeholder row, marker, or counter. Not a sourced fact.</dd>
+      <dt>Unknown</dt><dd>Not sourced yet. An Unknown chip is not a fact and not a stand-in for a guess.</dd>
+      <dt>Claims log</dt><dd>The tab where sourced statements go after import. Empty in this file.</dd>
     </dl>
   </div>
 </section>
 
 <!-- SOURCES -->
 <section class="view" id="v-sources" aria-label="Sources">
-  <h2 style="margin:0 0 10px;font-size:18px">Sources</h2>
+  <h2>Sources</h2>
   <div class="card sources">
-    <p>Primary links (dated). Replace/extend on every fill. Tags: <span class="tag tO">Official</span> <span class="tag tC">Credible</span> <span class="tag tU">Unconfirmed</span> <span class="tag tS">Unknown</span></p>
+    <p>Primary links. Extend this list when you fill a shell. Tags: <span class="tag tO">Official</span> <span class="tag tC">Credible</span> <span class="tag tU">Unconfirmed</span> <span class="tag tS">Unknown</span></p>
     <ul>
       <li><span class="tag tO">Official</span> NASA Human Landing Systems — <a href="https://www.nasa.gov/reference/human-landing-systems/" target="_blank" rel="noopener">nasa.gov/reference/human-landing-systems</a> · as of Unknown</li>
-      <li><span class="tag tO">Official</span> NASA / SpaceX Artemis lander concepts (20 Nov 2024) — <a href="https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/" target="_blank" rel="noopener">article</a></li>
+      <li><span class="tag tO">Official</span> NASA / SpaceX Artemis lander concepts — <a href="https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/" target="_blank" rel="noopener">article</a></li>
       <li><span class="tag tO">Official</span> Blue Moon — <a href="https://www.blueorigin.com/blue-moon" target="_blank" rel="noopener">blueorigin.com/blue-moon</a></li>
+      <li><span class="tag tO">Official</span> New Glenn — <a href="https://www.blueorigin.com/new-glenn" target="_blank" rel="noopener">blueorigin.com/new-glenn</a> · image still TBD</li>
       <li><span class="tag tO">Official</span> CMSA Lanyue landing/takeoff test report — <a href="https://english.www.gov.cn/news/202508/07/content_WS68949af4c6d0868f4e8f4b21.html" target="_blank" rel="noopener">english.www.gov.cn · 7 Aug 2025</a></li>
       <li><span class="tag tO">Official</span> CMSA — <a href="https://www.cmse.gov.cn/" target="_blank" rel="noopener">cmse.gov.cn</a></li>
       <li><span class="tag tO">Official</span> CNSA — <a href="https://www.cnsa.gov.cn/" target="_blank" rel="noopener">cnsa.gov.cn</a></li>
     </ul>
+    <p class="src">Claims log: no rows yet. Map markers are not sources.</p>
   </div>
 </section>
 
@@ -425,19 +875,52 @@ footer{margin-top:8px;padding:12px 4px 8px;font-size:13px;color:#6b7c96;text-ali
 </footer>
 </main>
 <script>
-(/* tabs */)
 (()=>{
   const go=v=>{
-    document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));
+    const id='v-'+v;
+    if(!document.getElementById(id))return;
+    document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===id));
     document.querySelectorAll('nav button[data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
     scrollTo(0,0);
     try{history.replaceState(null,'','#'+v)}catch(e){}
   };
   document.querySelectorAll('nav button[data-v]').forEach(b=>b.onclick=()=>go(b.dataset.v));
-  if(location.hash)go(location.hash.slice(1)||'home');
+  document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    go(a.dataset.go);
+    if(a.dataset.open){
+      const d=document.getElementById(a.dataset.open);
+      if(d){
+        d.open=true;
+        let p=d.parentElement;
+        while(p){if(p.tagName==='DETAILS')p.open=true;p=p.parentElement;}
+      }
+    }
+  }));
+  const h=(location.hash||'').slice(1);
+  if(h&&document.getElementById('v-'+h))go(h);
 })();
 
-(/* spring pinch-zoom — markers glued to moon layer; no on-screen double-tap hint */)
+(()=>{
+  const title=document.getElementById('site-title');
+  const meta=document.getElementById('site-meta');
+  const side=document.getElementById('site-side');
+  const kind=document.getElementById('site-kind');
+  if(!title)return;
+  const rows=[...document.querySelectorAll('.site')];
+  const pts=[...document.querySelectorAll('.pt')];
+  rows.forEach(row=>row.addEventListener('click',()=>{
+    const id=row.dataset.id;
+    rows.forEach(r=>r.classList.toggle('on',r===row));
+    pts.forEach(p=>p.classList.toggle('hot',p.dataset.id===id));
+    title.textContent=row.dataset.name||'Site';
+    side.textContent=row.dataset.side||'Unknown';
+    kind.textContent=row.dataset.kind||'EXAMPLE';
+    meta.textContent='Drill-down stub · EXAMPLE · coords and dates stay Unknown until you import sources.';
+  }));
+})();
+
+// Pinch-zoom: markers stay glued to the moon layer. No on-screen double-tap hint.
 (()=>{
   const el=document.getElementById('zw');
   const layer=document.getElementById('layer');

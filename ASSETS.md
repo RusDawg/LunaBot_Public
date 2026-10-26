@@ -15,6 +15,7 @@ Verify each URL still returns an image before a release; agencies rotate CDNs.
 | Infographic · Artemis III CONOPS | NASA | https://www.nasa.gov/mission/artemis-iii/ | https://www.nasa.gov/wp-content/uploads/2026/10/2-artemis-iii-con-ops-oct2026.jpg | 📊 infographic |
 | SLS + Orion | NASA | https://www.nasa.gov/mission/artemis-iii/ | Fill from current NASA mission page / images.nasa.gov | photo or rendering |
 | Tanker / depot concepts | SpaceX / NASA | HLS key-moments article above | Prefer NASA-hosted SpaceX concepts from that article | 🎨 RENDERING |
+| Architecture · New Glenn | Blue Origin | https://www.blueorigin.com/new-glenn | Fill when an official public still is available; keep page link | TBD |
 
 ## China / CMSA / CNSA
 
@@ -30,4 +31,5 @@ Verify each URL still returns an image before a release; agencies rotate CDNs.
 2. Every `<img>` card: caption · credit · outbound page link · as-of date · type badge (`🎨 RENDERING` when not a photo).
 3. If a CDN 404s, keep the **page** link and show a dashed placeholder (`noimg`) — do not substitute a private Drive file.
 4. ESA/JAXA assets OK when the architecture card cites them; same credit rules.
-5. Map markers in the scaffold are EXAMPLES — replace with sourced sites; SVG moon disk needs no external asset.
+5. Map markers in the scaffold are EXAMPLES — past-landing and next-target glue points, not surveyed coordinates. Replace with sourced sites. The SVG moon disk needs no external asset.
+6. Claims-log rows, drill-down facts, and propellant counts do not ship in this seed. Do not fill them from private notes or an unpublished tanker number. If a public source states a count later, cite it and date it.
